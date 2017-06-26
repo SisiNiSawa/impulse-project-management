@@ -40,6 +40,7 @@
     "@angular/language-service": "^4.0.0",
     "@types/jasmine": "2.5.45",
     "@types/node": "~6.0.60",
+    "angular-cli-ghpages": "^0.5.1",
     "codelyzer": "~3.0.1",
     "electron": "^1.6.10",
     "electron-rebuild": "^1.5.11",

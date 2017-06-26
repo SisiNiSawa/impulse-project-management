@@ -29,23 +29,6 @@ export class KanbanService {
   // initialization functions
   // =========================
 
-  initializeKanbanOld(kanbanID: string) {
-    console.log("Initializing kanban module...");
-    let n;
-    return this.loadKanbanModule(kanbanID).then( (kanban) => {
-      this.kanban = kanban;
-      return this.loadKanbanCards(kanban).then( (cardsArray) => {
-        for (var i = 0; i < cardsArray.length; i++) {
-          n = i;
-          return this.loadKanbanCardItems(cardsArray[n]).then( (cardItems) => {
-            this.kanban.cards[n] = cardsArray[n];
-            return this.kanban.cards[n].items = cardItems;
-          });
-        }
-      });
-    });
-  }
-
   initializeKanban(kanbanID: string) {
     console.log("initalizing...");
     let n;
@@ -108,42 +91,6 @@ export class KanbanService {
 
   createNewItem(cardID: string, item: KanbanItem) {
     this.dbService.addKanbanCardItem(cardID, item);
-  }
-
-  // =========================
-  // update functions
-  // =========================
-
-  updateCard() {
-
-  }
-
-  updateItem() {
-
-  }
-
-  // =========================
-  // removal functions
-  // =========================
-
-  removeCard() {
-
-  }
-
-  removeItem() {
-
-  }
-
-  // =========================
-  // misc functions
-  // =========================
-
-  moveItemToCard() {
-
-  }
-
-  viewItemDetails() {
-
   }
 
 }

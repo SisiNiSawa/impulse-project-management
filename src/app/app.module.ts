@@ -21,7 +21,6 @@ import { KanbanService } from './modules/kanban/kanban.service';
 import { PopupDirective } from './popup.directive';
 import { AutoFocusDirective } from './auto-focus.directive';
 import { KanbanItemViewComponent } from './modules/kanban/item/view/view.component';
-import { DragScrollDirective } from './drag-scroll.directive';
 import { DefaultComponent } from './modules/default/default.component';
 import { ProjectComponent } from './modules/project/project.component';
 import { MarkdownComponent } from './modules/markdown/markdown.component';
@@ -43,7 +42,6 @@ import { MarkdownComponent } from './modules/markdown/markdown.component';
     KanbanComponent,
     AutoFocusDirective,
     KanbanItemViewComponent,
-    DragScrollDirective,
     DefaultComponent,
     ProjectComponent,
     MarkdownComponent

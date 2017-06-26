@@ -15,7 +15,6 @@ import { Markdown } from './shared/markdown.model';
 export class DatabaseService {
 
   private pouch;
-  // public data: Observable<any>;
 
   // initialize the database and all neccesary functions
   constructor() {
@@ -121,33 +120,6 @@ export class DatabaseService {
       console.log(err);
     });
   }
-
-    // useless code? keeping for reference before release
-    addNewModule(projectID: string, name: string, type: string) {
-      let id = String(Date.now());
-
-      let newModule = {
-        _id: <string> id,
-        name: <string> name,
-        type: <string> type
-      }
-
-      this.pouch.get(projectID).then( (project) => {
-        if (!project.modules) {
-          project.modules = [];
-        }
-        project.modules.push(id);
-        console.log(project);
-
-        return this.pouch.put(project);
-
-      }).then( () => {
-        console.log("Hello!");
-      }).catch( (err) => {
-        console.log(err);
-      });
-
-    }
 
   // =========================================
   // database functions for updating entries
