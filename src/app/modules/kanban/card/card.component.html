@@ -1,0 +1,32 @@
+<div class="col-xs-2">
+  <div class="card">
+
+    <div class="header">
+      <!-- display area -->
+
+      <h1 *ngIf="editMode === false">
+      <i (click)="createNewItem()" class="fa fa-plus-circle" aria-hidden="true"></i>
+      <span (click)="toggleEditMode()" class="noselect">{{ card.name }}</span> </h1>
+
+      <!-- edit area -->
+
+      <div class="edit" *ngIf="editMode === true">
+        <input #name type="text" [value]="card.name" class="edit-header"
+        (keyup.enter)="onPressEnter(name.value)" auto-focus>
+        <i (click)="deleteCard()" class="fa fa-trash-o" aria-hidden="true"></i>
+      </div>
+
+
+    </div>
+
+    <div class="card-items" [id]="card._id" [dragula] [dragulaModel]="card.items">
+
+      <app-kanban-item *ngFor="let item of card.items"
+      [item]="item"
+      [cardID]="card._id"
+      [id]="item._id"></app-kanban-item>
+
+    </div>
+
+  </div>
+</div>

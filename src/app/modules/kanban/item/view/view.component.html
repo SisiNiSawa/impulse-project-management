@@ -1,0 +1,38 @@
+<div class="row overlay">
+  <div class="col-xs-12">
+
+    <div class="window">
+      <h1>Viewing item details <i class="fa fa-times" aria-hidden="true" (click)="clearPopups()"></i></h1>
+
+      <!-- Edit mode -->
+      <div class="view-container">
+        <p>Item Name</p>
+        <input class="shortDescription" type="text"
+        [ngModel]="viewItem?.shortDescription"
+        (ngModelChange)="viewItem.shortDescription = $event">
+      </div>
+
+      <div class="warning-container" *ngIf="viewItem.shortDescription.length > 25">
+        <p class="warning" >Names longer than 25 characters will appear cut off inside of the kanban card.</p>
+
+      </div>
+
+      <div class="view-container">
+        <p>Item Contents</p>
+        <textarea class="description"
+        [ngModel]="viewItem?.description"
+        (ngModelChange)="viewItem.description = $event"
+        ></textarea>
+      </div>
+
+
+      <button id="cancel" type="button" class="btn btn-cancel pull-left"
+      (click)="removeItem()">Delete Item</button>
+
+      <button (click)="updateItem()" type="submit" class="btn btn-new pull-right">Save Item</button>
+      <!-- End edit mode -->
+
+    </div>
+
+  </div>
+</div>

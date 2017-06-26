@@ -1,0 +1,31 @@
+<ul class="noselect list-group " (click)="viewItemInfo()">
+  <li class="list-group-item">
+    <!-- slide-out delete -->
+    <i (click)="showDropdown($event)" class="fa fa-list" aria-hidden="true"></i>
+    <div class="item">
+      <span class="delete" (click)="removeItem($event)">
+        <i class="fa fa-trash-o" aria-hidden="true"></i>
+      </span>
+      {{ item.shortDescription | slice:0:25 }}
+    </div>
+
+    <div class="dropdown-container">
+      <div class="dropdown-buttons"
+      [ngClass]="{show: dropdownVisible}"
+      (mouseenter)="mouseEnter()"
+      (mouseleave)="mouseLeave()">
+
+        <div class="button">
+          View Item
+        </div>
+
+        <div class="button">
+          Delete Item .
+
+        </div>
+
+      </div>
+    </div>
+
+  </li>
+</ul>

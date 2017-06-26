@@ -1,0 +1,32 @@
+.navbar-inverse {
+  border-radius: 0;
+  margin-bottom: 0;
+  border: none;
+  background-color: rgb(40, 42, 54);
+}
+
+.navbar-header {
+  width: 16.66666667%;
+  display: flex;
+  /*margin-left: 35px;*/
+}
+
+.navbar-brand {
+  margin: 0 auto;
+  /*background-color: #3B4252;*/
+  border-radius: 4px;
+  height: 30px;
+}
+
+.navbar-inverse .navbar-brand {
+  color: #ECEFF4;
+}
+
+.navbar-inverse .navbar-nav>li>a {
+  color: #ECEFF4;
+}
+
+
+.fa-plus-circle {
+  color: #9cfcb4;
+}

@@ -1,0 +1,82 @@
+body, html {
+  background-color: #3B4252;
+  overflow: hidden;
+  height: 100%;
+}
+
+.height {
+  height: 100%;
+}
+
+.sidebar {
+  overflow-x: hidden;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background-color: #282a36;
+  z-index: 1;
+  padding: 0;
+  /*max-width: 215px;*/
+}
+
+.row {
+  margin: 0;
+}
+
+.col-xs-10 {
+  padding: 0;
+  height: 100%;
+}
+
+.btn-new {
+  color: #282A36;
+  background-color: #9CFCB4;
+  /*background-color: #7bf49b;*/
+  border-color: #282A36;
+}
+
+.btn-new:active,
+.btn-new:hover,
+.btn-new:focus {
+  color: #282A36;
+  background-color: #56F57D;
+  border-color: #282A36;
+}
+.btn-cancel {
+  color: #282A36;
+  background-color: #F08080;
+  border-color: #282A36;
+}
+
+.btn-cancel:active,
+.btn-cancel:hover,
+.btn-cancel:focus {
+  color: #282A36;
+  background-color: #FA4949;
+  border-color: #282A36;
+}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+
+:not(input):not(textarea),
+:not(input):not(textarea)::after,
+:not(input):not(textarea)::before {
+    -webkit-user-select: none;
+    user-select: none;
+    /*cursor: default;*/
+}
+
+.defaultcursor {
+  cursor: default;
+}
+
+/* Dragula because I can't be fucked to figure out how to import css */
+.gu-mirror{position:fixed!important;margin:0!important;z-index:9999!important;opacity:.8;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";filter:alpha(opacity=80)}.gu-hide{display:none!important}.gu-unselectable{-webkit-user-select:none!important;-moz-user-select:none!important;-ms-user-select:none!important;user-select:none!important}.gu-transit{opacity:.2;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=20)";filter:alpha(opacity=20)}

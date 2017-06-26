@@ -1,0 +1,17 @@
+<!-- <app-header></app-header> -->
+<!-- Commented out until multi-tab projects are implemented -->
+
+<div class="row height">
+  <div class="col-xs-2 sidebar">
+    <app-sidebar></app-sidebar>
+  </div>
+  <div class="col-xs-10 noselect">
+    <!-- Insert popup form windows in here -->
+    <!-- <div app-popup>
+    <div #popup></div>
+  </div> -->
+    <app-popup></app-popup>
+    <!-- /Form Windows -->
+    <app-content-area (selectedItemEvent)="onChangedItem()"></app-content-area>
+  </div>
+</div>

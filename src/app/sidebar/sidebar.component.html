@@ -1,0 +1,44 @@
+<div class="row">
+  <div class="col-xs-12">
+
+    <div class="header">
+      <button class="btn-header" (click)="toggleMenu()">Impulse <i class="fa fa-caret-down" aria-hidden="true"></i></button>
+      <div class="dropdown-content noselect"
+      [ngClass]="{show: dropdownVisible}"
+      (mouseenter)="mouseEnterMenu()"
+      (mouseleave)="mouseLeaveMenu()">
+        <div class="button" (click)="newProject()">
+          New Project
+        </div>
+        <div class="button" (click)="newModule()">
+          New Module
+        </div>
+      </div>
+    </div>
+
+    <nav class="flex">
+      <ul class="noselect project"
+      *ngFor="let project of projects"
+      [ngStyle]="{order: project.order}">
+        <li (click)="onSelectItem(project)"
+        [ngClass]="{'selected': selectedItem === project._id,
+                    'hover': hoverItem === project._id}"
+        (mouseenter)="onMouseHover($event, project)"
+        (mouseleave)="onMouseHover($event, project)">
+        <i class="fa {{ project.icon }}" id="{{ project._id }}"></i> {{ project.name }}</li>
+
+        <ul class="module"
+        *ngFor="let module of project.modules">
+        <li (click)="onSelectItem(module)"
+        [ngClass]="{'selected': selectedItem === module._id,
+                    'hover': hoverItem === module._id}"
+        (mouseenter)="onMouseHover($event, module)"
+        (mouseleave)="onMouseHover($event, module)">
+        <i class="fa {{ module.icon }}" id="{{ module._id }}"></i> {{ module.name }}</li>
+      </ul>
+
+      </ul>
+    </nav>
+
+  </div>
+</div>
