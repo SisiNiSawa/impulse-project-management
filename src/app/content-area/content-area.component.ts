@@ -8,6 +8,7 @@ import { SidebarService } from '../sidebar/sidebar.service';
 import { KanbanComponent } from '../modules/kanban/kanban.component';
 import { MarkdownComponent } from '../modules/markdown/markdown.component';
 import { DefaultComponent } from '../modules/default/default.component';
+import { ProjectComponent } from '../modules/project/project.component';
 
 @Component({
   selector: 'app-content-area',
@@ -40,11 +41,16 @@ export class ContentAreaComponent implements OnInit {
   }
 
   onChangeItem(item: any) {
+    if (this.selectedItem === item) {
+      return;
+    }
     this.selectedItem = item;
     if (this.selectedItem.type === "kanban") {
       this.loadKanbanModule();
     } else if (this.selectedItem.type === "markdown") {
       this.loadMarkdownModule();
+    } else if (this.selectedItem.type === "project") {
+      this.loadProjectModule();
     } else {
       this.loadDefaultModule();
     }
@@ -54,6 +60,17 @@ export class ContentAreaComponent implements OnInit {
     // for now, just clear the view area
     // maybe in the future ask if user wants to save? idk
     this.viewContainer.clear();
+  }
+
+  // why do I keep digging myself further into this hole?
+  // dry up this code later
+
+  loadProjectModule() {
+    this.clearContentArea()
+
+    let component = this.componentFactoryResolver.resolveComponentFactory(ProjectComponent);
+    let componentRef = this.viewContainer.createComponent(component);
+
   }
 
   loadKanbanModule() {

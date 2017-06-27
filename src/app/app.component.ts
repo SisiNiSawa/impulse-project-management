@@ -7,6 +7,7 @@ import { NewModuleComponent } from './modules/new/new.component';
 import { KanbanComponent } from './modules/kanban/kanban.component';
 import { KanbanItemViewComponent } from './modules/kanban/item/view/view.component';
 import { DefaultComponent } from './modules/default/default.component';
+import { ProjectComponent } from './modules/project/project.component';
 import { MarkdownComponent } from './modules/markdown/markdown.component';
 
 @Component({
@@ -14,7 +15,7 @@ import { MarkdownComponent } from './modules/markdown/markdown.component';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
   encapsulation: ViewEncapsulation.None,
-  entryComponents: [NewProjectComponent, NewModuleComponent, KanbanComponent, KanbanItemViewComponent, DefaultComponent, MarkdownComponent]
+  entryComponents: [NewProjectComponent, NewModuleComponent, KanbanComponent, KanbanItemViewComponent, DefaultComponent, ProjectComponent, MarkdownComponent]
 
 })
 export class AppComponent implements OnInit {
