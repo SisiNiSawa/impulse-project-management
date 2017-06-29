@@ -72,8 +72,8 @@ export class SidebarComponent implements OnInit {
     });
   }
 
-  onSelectItem(item: any) {
-    console.log(item);
+  onSelectItem(event: Event, item: any) {
+    event.stopPropagation();
     this.selectedItem = item._id;
     this.selectedType = item.type;
     this.sidebarService.onSelectItem(item);
@@ -87,6 +87,11 @@ export class SidebarComponent implements OnInit {
     } else {
       console.log("What the fuck?");
     }
+  }
+
+  onSelectNothing() {
+    this.selectedItem = undefined;
+    this.sidebarService.onSelectNothing();
   }
 
   toggleMenu() {

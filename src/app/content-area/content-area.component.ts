@@ -10,6 +10,8 @@ import { MarkdownComponent } from '../modules/markdown/markdown.component';
 import { DefaultComponent } from '../modules/default/default.component';
 import { ProjectComponent } from '../modules/project/project.component';
 
+import { WizardComponent } from '../wizard/wizard.component';
+
 @Component({
   selector: 'app-content-area',
   templateUrl: './content-area.component.html',
@@ -27,7 +29,7 @@ export class ContentAreaComponent implements OnInit {
     }
 
   ngOnInit() {
-    this.loadDefaultModule();
+    this.changeContentArea(DefaultComponent);
   }
 
   ngAfterViewInit() {
@@ -35,6 +37,10 @@ export class ContentAreaComponent implements OnInit {
       (event: any) => {
         if (event === "itemChanged") {
           this.onChangeItem(this.sidebarService.selectedItem);
+        } else if (event === "projectWizard") {
+          this.changeContentArea(WizardComponent);
+        } else if (event === "noItem") {
+          this.changeContentArea(DefaultComponent);
         }
       }
     )
@@ -46,13 +52,13 @@ export class ContentAreaComponent implements OnInit {
     }
     this.selectedItem = item;
     if (this.selectedItem.type === "kanban") {
-      this.loadKanbanModule();
+      this.changeContentArea(KanbanComponent);
     } else if (this.selectedItem.type === "markdown") {
-      this.loadMarkdownModule();
+      this.changeContentArea(MarkdownComponent);
     } else if (this.selectedItem.type === "project") {
-      this.loadProjectModule();
+      this.changeContentArea(ProjectComponent);
     } else {
-      this.loadDefaultModule();
+      this.changeContentArea(DefaultComponent);
     }
   }
 
@@ -65,33 +71,10 @@ export class ContentAreaComponent implements OnInit {
   // why do I keep digging myself further into this hole?
   // dry up this code later
 
-  loadProjectModule() {
-    this.clearContentArea()
-
-    let component = this.componentFactoryResolver.resolveComponentFactory(ProjectComponent);
-    let componentRef = this.viewContainer.createComponent(component);
-
-  }
-
-  loadKanbanModule() {
+  changeContentArea(component) {
     this.clearContentArea();
-
-    let component = this.componentFactoryResolver.resolveComponentFactory(KanbanComponent);
-    let componentRef = this.viewContainer.createComponent(component);
-  }
-
-  loadMarkdownModule() {
-    this.clearContentArea();
-
-    let component = this.componentFactoryResolver.resolveComponentFactory(MarkdownComponent);
-    let componentRef = this.viewContainer.createComponent(component);
-  }
-
-  loadDefaultModule() {
-    this.clearContentArea();
-
-    let component = this.componentFactoryResolver.resolveComponentFactory(DefaultComponent);
-    let componentRef = this.viewContainer.createComponent(component);
+    let comp = this.componentFactoryResolver.resolveComponentFactory(component);
+    let compRef = this.viewContainer.createComponent(comp);
   }
 
   onChangedItem() {

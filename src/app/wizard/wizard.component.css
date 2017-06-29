@@ -1,0 +1,8 @@
+.row {
+  margin-top: 6em;
+}
+
+app-wizard-project {
+  opacity: 0;
+  transition: 0.5s;
+}

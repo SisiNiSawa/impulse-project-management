@@ -9,13 +9,14 @@ import { KanbanItemViewComponent } from './modules/kanban/item/view/view.compone
 import { DefaultComponent } from './modules/default/default.component';
 import { ProjectComponent } from './modules/project/project.component';
 import { MarkdownComponent } from './modules/markdown/markdown.component';
+import { WizardComponent } from './wizard/wizard.component';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
   encapsulation: ViewEncapsulation.None,
-  entryComponents: [NewProjectComponent, NewModuleComponent, KanbanComponent, KanbanItemViewComponent, DefaultComponent, ProjectComponent, MarkdownComponent]
+  entryComponents: [NewProjectComponent, NewModuleComponent, KanbanComponent, KanbanItemViewComponent, DefaultComponent, ProjectComponent, MarkdownComponent, WizardComponent]
 
 })
 export class AppComponent implements OnInit {

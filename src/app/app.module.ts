@@ -24,6 +24,9 @@ import { KanbanItemViewComponent } from './modules/kanban/item/view/view.compone
 import { DefaultComponent } from './modules/default/default.component';
 import { ProjectComponent } from './modules/project/project.component';
 import { MarkdownComponent } from './modules/markdown/markdown.component';
+import { WizardComponent } from './wizard/wizard.component';
+import { WizardProjectComponent } from './wizard/project/project.component';
+import { FadeInDirective } from './fade-in.directive'; 
 
 
 
@@ -44,7 +47,10 @@ import { MarkdownComponent } from './modules/markdown/markdown.component';
     KanbanItemViewComponent,
     DefaultComponent,
     ProjectComponent,
-    MarkdownComponent
+    MarkdownComponent,
+    WizardComponent,
+    WizardProjectComponent,
+    FadeInDirective
   ],
   imports: [
     BrowserModule,

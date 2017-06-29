@@ -1,5 +1,10 @@
 .row {
   height: 100%;
+  margin-top: 6em;
+}
+
+hr {
+  width: 50%;
 }
 
 .col-xs-12 {
@@ -19,7 +24,21 @@ p {
 }
 
 h2 {
-  color: #7a859f;
+  font-weight: normal;
+  font-size: 1.5em;
+  display: inline-block;
+  color: #a6aebf;
+  padding: 5px;
+  border: 2px solid #a6aebf;
+  border-radius: 4px;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+h2:hover {
+  border: 2px solid #565f76;
+  color: #c4c9d4;
+  background-color: #565f76;
 }
 
 .welcome-text h1 {
@@ -32,17 +51,3 @@ h2 {
   font-size: 0.8em;
   color: #7a859f;
 }
-
-/* fidget spinner garbage */
-.fidget{
-  margin: 0 auto;
-  height:140px;
-  width: 140px;
-  background: url('https://discuss-assets.s3.amazonaws.com/original/3X/0/3/03ad072969fc47ab98c776a60afc76d61e4877e8.svg') no-repeat;
-  background-position: 22px 30px;
-  background-size: 96px 96px;
-  animation: spin 5s cubic-bezier(.30,.60,.80,1);
-
-}
-
-@keyframes spin { 100% { transform: rotate(18000deg) }};

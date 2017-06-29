@@ -23,6 +23,8 @@ li {
 }
 
 nav {
+  overflow-y: hidden;
+  height: 90%;
   margin-top: 15px;
   padding-right: 2px;
 }

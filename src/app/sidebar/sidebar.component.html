@@ -16,11 +16,11 @@
       </div>
     </div>
 
-    <nav>
+    <nav (click)="onSelectNothing()">
       <ul class="noselect project"
       *ngFor="let project of projects"
       [ngStyle]="{order: project.order}">
-        <li (click)="onSelectItem(project)"
+        <li (click)="onSelectItem($event, project)"
         [ngClass]="{'selected': selectedItem === project._id,
                     'hover': hoverItem === project._id}"
         (mouseenter)="onMouseHover($event, project)"
@@ -29,7 +29,7 @@
 
         <ul class="module"
         *ngFor="let module of project.modules">
-        <li (click)="onSelectItem(module)"
+        <li (click)="onSelectItem($event, module)"
         [ngClass]="{'selected': selectedItem === module._id,
                     'hover': hoverItem === module._id}"
         (mouseenter)="onMouseHover($event, module)"

@@ -1,0 +1,36 @@
+h1 {
+  color: #a6aebf;
+}
+
+hr {
+  border-top: 1px solid rgba(96, 107, 133, 0.2);
+}
+
+label {
+  color: #97a0b4;
+  margin-left: 1em;
+}
+
+.header {
+  margin-bottom: 4em;
+}
+
+.info {
+  font-size: 0.95em;
+  color: #7a859f;
+  text-align: center;
+}
+
+.input-group {
+  margin-bottom: 1em;
+}
+
+.input-group input {
+  background-color: #f0f1f4;
+}
+
+.controls {
+  margin-top: 2.5em;
+  display: flex;
+  justify-content: space-between;
+}

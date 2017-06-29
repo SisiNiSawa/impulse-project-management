@@ -22,8 +22,17 @@ export class SidebarService {
     this.observer.next("itemChanged");
   }
 
+  onSelectNothing() {
+    this.selectedItem = undefined;
+    this.observer.next("noItem");
+  }
+
   updateProjects() {
     this.observer.next("updateProjects");
+  }
+
+  initProjectWizard() {
+    this.observer.next("projectWizard");
   }
 
 }
