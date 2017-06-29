@@ -1,22 +1,22 @@
 <div class="row">
-  <div class="col-md-12">
+  <div class="col-md-12" (click)="onSelectNothing($event)">
 
     <div class="header">
-      <button class="btn-header" (click)="toggleMenu()">Impulse <i class="fa fa-caret-down" aria-hidden="true"></i></button>
+      <button class="btn-header" (click)="toggleMenu($event)">Impulse <i class="fa fa-caret-down" aria-hidden="true"></i></button>
       <div class="dropdown-content noselect"
       [ngClass]="{show: dropdownVisible}"
       (mouseenter)="mouseEnterMenu()"
       (mouseleave)="mouseLeaveMenu()">
-        <div class="button" (click)="newProject()">
+        <div class="button" (click)="newProject($event)">
           New Project
         </div>
-        <div class="button" (click)="newModule()">
+        <div class="button" (click)="newModule($event)">
           New Module
         </div>
       </div>
     </div>
 
-    <nav (click)="onSelectNothing()">
+    <nav>
       <ul class="noselect project"
       *ngFor="let project of projects"
       [ngStyle]="{order: project.order}">

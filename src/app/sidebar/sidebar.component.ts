@@ -89,12 +89,14 @@ export class SidebarComponent implements OnInit {
     }
   }
 
-  onSelectNothing() {
+  onSelectNothing(event: Event) {
+    // event.stopPropagation();
     this.selectedItem = undefined;
     this.sidebarService.onSelectNothing();
   }
 
-  toggleMenu() {
+  toggleMenu(event: Event) {
+    event.stopPropagation();
     this.dropdownVisible = !this.dropdownVisible;
   }
 
@@ -108,11 +110,13 @@ export class SidebarComponent implements OnInit {
     }
   }
 
-  newProject() {
+  newProject(event: Event) {
+    event.stopPropagation();
     this.popupService.newProjectPopup();
   }
 
-  newModule() {
+  newModule(event: Event) {
+    event.stopPropagation();
     if (this.selectedType === "project") {
       this.popupService.newModulePopup();
     }

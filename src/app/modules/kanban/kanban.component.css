@@ -8,8 +8,8 @@
 }
 
 .kanban-area {
-  height: calc(100% - 34px);
-  margin-top: 1rem;
+  height: calc(100% - 44px);
+  margin-top: 10px;
 }
 
 .row::-webkit-scrollbar-track
