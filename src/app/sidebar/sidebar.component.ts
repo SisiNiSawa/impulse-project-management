@@ -73,7 +73,6 @@ export class SidebarComponent implements OnInit {
   }
 
   onSelectItem(item: any) {
-    // this.sidebarService.selectedItem = item;
     console.log(item);
     this.selectedItem = item._id;
     this.selectedType = item.type;
