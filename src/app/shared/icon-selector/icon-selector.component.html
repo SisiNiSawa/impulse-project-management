@@ -1,0 +1,8 @@
+<div class="input-group">
+  <div class="icon-selector">
+    <i  class="fa fa-fw {{ icon }}" aria-hidden="true"
+    *ngFor="let icon of icons"
+    (click)="selectIcon(icon)"
+    [ngClass]="{'selected': selectedIcon === icon}"></i>
+  </div>
+</div>

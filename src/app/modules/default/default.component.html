@@ -5,11 +5,13 @@
       <h3>At least that's what I'm calling it for now</h3>
       <hr />
 
-      <h2 *ngIf="!firstTime" (click)="projectWizard()">Create a Project</h2>
+      <button class="button button-primary" (click)="projectWizard()">New Project</button>
+
+      <!-- <h2 *ngIf="!firstTime" (click)="projectWizard()">Create a Project</h2>
 
       <div *ngIf="firstTime" class="intro">
         <h2 (click)="projectWizard()">Get Started</h2>
-      </div>
+      </div> -->
 
     </div>
 

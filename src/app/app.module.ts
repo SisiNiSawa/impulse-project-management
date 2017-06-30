@@ -26,7 +26,9 @@ import { ProjectComponent } from './modules/project/project.component';
 import { MarkdownComponent } from './modules/markdown/markdown.component';
 import { WizardComponent } from './wizard/wizard.component';
 import { WizardProjectComponent } from './wizard/project/project.component';
-import { FadeInDirective } from './fade-in.directive'; 
+import { FadeInDirective } from './fade-in.directive';
+import { IconSelectorComponent } from './shared/icon-selector/icon-selector.component';
+import { WizardModuleComponent } from './wizard/module/module.component';
 
 
 
@@ -50,7 +52,9 @@ import { FadeInDirective } from './fade-in.directive';
     MarkdownComponent,
     WizardComponent,
     WizardProjectComponent,
-    FadeInDirective
+    FadeInDirective,
+    IconSelectorComponent,
+    WizardModuleComponent
   ],
   imports: [
     BrowserModule,

@@ -26,13 +26,13 @@
           </select>
         </div>
 
-        <button type="button" id="cancel" class="btn btn-cancel pull-left" (click)="clearPopups()">Cancel</button>
+        <div class="controls">
+          <button type="button" id="cancel" class="button button-negative pull-left" (click)="clearPopups()">Cancel</button>
 
-        <button type="submit" class="btn btn-new pull-right" [disabled]="!moduleForm.form.valid">Create Project</button>
+          <button type="submit" class="button button-positive" [disabled]="!moduleForm.form.valid">Create</button>
+        </div>
 
       </form>
-
-
 
     </div>
 

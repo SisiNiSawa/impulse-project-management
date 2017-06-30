@@ -82,13 +82,13 @@ nav {
   max-height: 0;
 }
 
-.button {
+.side-btn {
   padding: 5px;
   cursor: pointer;
   transition: background-color 0.2s linear;
 }
 
-.button:hover {
+.side-btn:hover {
   background-color: #7b809d;
 }
 

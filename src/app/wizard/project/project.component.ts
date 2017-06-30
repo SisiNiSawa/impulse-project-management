@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-wizard-project',
@@ -7,9 +7,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WizardProjectComponent implements OnInit {
 
+  @Output() project: EventEmitter<any> = new EventEmitter();
+  @Output() next: EventEmitter<any> = new EventEmitter();
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  nextStep() {
+    this.next.emit();
+  }
+
+  createProject() {
+
   }
 
 }

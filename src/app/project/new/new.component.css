@@ -18,6 +18,11 @@
   padding-bottom: 15px;
 }
 
+.controls {
+  display: flex;
+  justify-content: space-between;
+}
+
 h1 {
   text-align: center;
   margin: 0;

@@ -7,7 +7,7 @@ export class FadeInDirective implements OnInit {
 
   constructor(private elRef: ElementRef) {
     this.elRef.nativeElement.style.opacity = 0;
-    this.elRef.nativeElement.style.transition = "0.3s all";
+    this.elRef.nativeElement.style.transition = "0.5s all";
   }
 
   ngOnInit() {

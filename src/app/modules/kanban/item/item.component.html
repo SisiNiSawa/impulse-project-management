@@ -9,23 +9,5 @@
       {{ item.shortDescription | slice:0:25 }}
     </div>
 
-    <div class="dropdown-container">
-      <div class="dropdown-buttons"
-      [ngClass]="{show: dropdownVisible}"
-      (mouseenter)="mouseEnter()"
-      (mouseleave)="mouseLeave()">
-
-        <div class="button">
-          View Item
-        </div>
-
-        <div class="button">
-          Delete Item .
-
-        </div>
-
-      </div>
-    </div>
-
   </li>
 </ul>

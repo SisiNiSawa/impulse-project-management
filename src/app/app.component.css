@@ -86,5 +86,56 @@ body, html {
   cursor: default;
 }
 
+/* Button CSS */
+.button {
+  cursor: pointer;
+  padding: 5px;
+  min-width: 5em;
+  font-size: 1.1em;
+  color: #f0f1f4;
+  background-color: transparent;
+  border: 2px solid #f0f1f4;
+  border-radius: 4px;
+  outline: none;
+  transition: 0.25s;
+}
+
+.button:hover, .button:focus {
+  color: #282a36;
+  box-shadow: inset 7em 0 0 0 #f0f1f4;
+  letter-spacing: 2px;
+}
+
+.button-positive {
+  color: #97C79F;
+  border: 2px solid #97C79F;
+}
+
+.button-positive:hover, .button-positive:focus {
+  color: #2C3F2C;
+  box-shadow: inset 7em 0 0 0 #97C79F;
+}
+
+.button-negative {
+  color: #F9BDC1;
+  border: 2px solid #F9BDC1;
+}
+
+.button-negative:hover, .button-negative:focus {
+  color: #4D3637;
+  box-shadow: inset 7em 0 0 0 #F9BDC1;
+}
+
+.button-primary {
+  min-width: 7.5em;
+  color: #8B97B2;
+  border: 2px solid #8B97B2;
+}
+
+.button-primary:hover, .button-primary:focus {
+  color: #262B34;
+  box-shadow: inset 7.5em 0 0 0 #8B97B2;
+}
+
 /* Dragula because I can't be fucked to figure out how to import css */
 .gu-mirror{position:fixed!important;margin:0!important;z-index:9999!important;opacity:.8;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";filter:alpha(opacity=80)}.gu-hide{display:none!important}.gu-unselectable{-webkit-user-select:none!important;-moz-user-select:none!important;-ms-user-select:none!important;user-select:none!important}.gu-transit{opacity:.2;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=20)";filter:alpha(opacity=20)}

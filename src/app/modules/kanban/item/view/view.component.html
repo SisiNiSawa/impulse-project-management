@@ -25,11 +25,13 @@
         ></textarea>
       </div>
 
+      <div class="controls">
+        <button id="cancel" type="button" class="button button-negative"
+        (click)="removeItem()">Delete</button>
 
-      <button id="cancel" type="button" class="btn btn-cancel pull-left"
-      (click)="removeItem()">Delete Item</button>
+        <button (click)="updateItem()" type="submit" class="button button-positive">Save</button>
+      </div>
 
-      <button (click)="updateItem()" type="submit" class="btn btn-new pull-right">Save Item</button>
       <!-- End edit mode -->
 
     </div>

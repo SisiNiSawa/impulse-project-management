@@ -1,0 +1,37 @@
+.icon-selector {
+  display: flex;
+  justify-content: center;
+  flex: 1 1 auto;
+  width: 25em;
+  background-color: #f0f1f4;
+  flex-wrap: wrap;
+  border: 1px solid rgba(0,0,0,.15);
+  border-radius: .25rem;
+  padding: 5px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.fa {
+  padding: 3px 1px;
+  cursor: pointer;
+  margin: 3px;
+  border: 1px solid #464a4c;
+  border-radius: 4px;
+  color: #464a4c;
+  background-color: #e2e4e9;
+  transition: 0.25s;
+  font-size: 1.9em;
+}
+
+.fa:hover, .fa:focus, .selected {
+  color: #e2e4e9;
+  animation: icon-gradient 2s infinite;
+  background-color: #464a4c;
+}
+
+@keyframes icon-gradient {
+  0% { color: #a9b0d6 }
+  50% { color: #cfafaf }
+  100% { color: #a9b0d6 }
+}
