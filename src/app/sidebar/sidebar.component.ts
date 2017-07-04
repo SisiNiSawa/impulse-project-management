@@ -40,7 +40,6 @@ export class SidebarComponent implements OnInit {
       if (event === "updateProjects") {
         this.projects = this.sidebarService.projects;
       } else if (event === "itemChanged") {
-        console.log("a");
         this.selectedItem = this.sidebarService.selectedItem._id;
         this.selectedType = this.sidebarService.selectedItem.type;
       }
