@@ -62,7 +62,7 @@ export class DatabaseService {
 
 
   addNewProject(newProject: Project) {
-    this.pouch.put(newProject);
+    return this.pouch.put(newProject);
   }
 
   addNewKanbanModule(projectID: string, newKanban: Kanban) {

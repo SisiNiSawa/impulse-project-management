@@ -10,14 +10,11 @@
 
     <label for="project-name">Project Name</label>
     <div class="input-group">
-      <input id="project-name" type="text" class="form-control" placeholder="My Awesome Project" />
+      <input id="project-name" type="text" class="form-control" placeholder="My Awesome Project" [(ngModel)]="project.name">
     </div>
 
     <label for="project-icon">Project Icon</label>
-    <!-- <div class="input-group">
-      <input id="project-icon" type="text" class="form-control" />
-    </div> -->
-    <icon-selector></icon-selector>
+    <icon-selector (icon)="selectIcon($event)"></icon-selector>
 
   </div>
 

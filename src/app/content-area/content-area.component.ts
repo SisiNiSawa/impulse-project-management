@@ -25,7 +25,6 @@ export class ContentAreaComponent implements OnInit {
     private viewContainer: ViewContainerRef,
     private componentFactoryResolver: ComponentFactoryResolver,
     private sidebarService: SidebarService) {
-
     }
 
   ngOnInit() {
@@ -63,13 +62,8 @@ export class ContentAreaComponent implements OnInit {
   }
 
   clearContentArea() {
-    // for now, just clear the view area
-    // maybe in the future ask if user wants to save? idk
     this.viewContainer.clear();
   }
-
-  // why do I keep digging myself further into this hole?
-  // dry up this code later
 
   changeContentArea(component) {
     this.clearContentArea();

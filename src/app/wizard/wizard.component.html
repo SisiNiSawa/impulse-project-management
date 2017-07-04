@@ -1,4 +1,6 @@
 <div fade-in class="row justify-content-center">
-  <app-wizard-project (next)="nextStep()"></app-wizard-project>
-  <app-wizard-module></app-wizard-module>
+  <app-wizard-project (next)="nextModuleStep()"
+  (newProject)="newProject($event)"></app-wizard-project>
+  <app-wizard-module (back)="backProjectStep()"
+  (module)="newModule($event)"></app-wizard-module>
 </div>

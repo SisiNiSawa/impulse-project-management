@@ -1,29 +1,47 @@
 <div class="col-md-12">
 
   <div class="header">
-    <h1>Create a New Module</h1>
+    <h1>Create Your Module</h1>
     <hr />
-    <p class="info">Choose a name and icon for your project</p>
+    <p class="info">Select the module you wish to create</p>
   </div>
 
-  <div class="content">
+  <div fade-in #stepOne id="step-1" class="content" *ngIf="step === 1">
 
-    <label for="project-name">Module Name</label>
-    <div class="input-group">
-      <input id="project-name" type="text" class="form-control" placeholder="My Awesome Project" />
+    <!-- eventually, there will be multiple, interactive module examples here -->
+    <!-- currently, we'll just use images for available modules -->
+    <div>
+      <h2>Kanban Board</h2>
+      <p class="info">Drag and drop items between cards to visualize progression</p>
+      <div class="kanban">
+        <img class="module noselect" src="./assets/kanban.png">
+      </div>
     </div>
 
-    <label for="project-icon">Module Icon</label>
-    <!-- <div class="input-group">
-      <input id="project-icon" type="text" class="form-control" />
-    </div> -->
-    <icon-selector></icon-selector>
+    <div class="module-controls">
+      <i class="fa fa-chevron-left" aria-hidden="true"></i>
+      <p class="info">Kanban</p>
+      <i class="fa fa-chevron-right" aria-hidden="true"></i>
+    </div>
+
+    <p class="info">Developer note: Kanban is the only module available at the moment.</p>
+
+  </div>
+
+  <div fade-in #stepTwo id="step-2" class="content" *ngIf="step === 2">
+    <label for="module-name">Module Name</label>
+    <div class="input-group">
+      <input id="module-name" type="text" class="form-control" placeholder="My Awesome Module" [(ngModel)]="moduleName">
+    </div>
+
+    <label for="module-icon">Module Icon</label>
+    <icon-selector (icon)="selectIcon($event)"></icon-selector>
 
   </div>
 
   <div class="controls">
-    <button class="button button-negative">Cancel</button>
-    <button class="button button-positive" (click)="nextStep()">Next</button>
+    <button class="button button-negative" (click)="goBack()">Back</button>
+    <button class="button button-positive" (click)="nextStep()">{{ btnText }}</button>
   </div>
 
 </div>
