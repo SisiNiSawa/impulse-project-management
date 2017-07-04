@@ -13,12 +13,25 @@ h2 {
   color: #e2e3e9;
   font-size: 1.3em;
   padding-left: 1.3em;
-  height: 1.6em;
+  /*height: 1.6em;*/
+  margin: 0;
   line-height: 29px;
 }
 
-.col-xs-12 {
+app-wizard-module {
+  padding: 10px;
+}
+
+.row {
+  justify-content: center;
+}
+
+.col-md-12 {
   padding: 0;
+}
+
+.col-md-4 {
+  margin-top: 1em;
 }
 
 .card {

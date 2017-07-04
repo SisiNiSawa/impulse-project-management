@@ -44,4 +44,8 @@ export class WizardProjectComponent implements OnInit {
     this.project.icon = String(event);
   }
 
+  cancelCreation() {
+    this.sidebarService.onSelectNothing();
+  }
+
 }

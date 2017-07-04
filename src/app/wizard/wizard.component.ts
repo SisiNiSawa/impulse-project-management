@@ -84,7 +84,7 @@ export class WizardComponent implements OnInit {
   moveToModule(id: string) {
     setTimeout( () => {
       this.sidebarService.onSelectItem(this.module);
-    }, 50);
+    }, 150);
   }
 
 }
