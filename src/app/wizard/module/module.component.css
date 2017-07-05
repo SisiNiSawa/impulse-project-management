@@ -74,3 +74,19 @@ label {
 .fa:hover, .fa:focus {
   background-color: #606b85;
 }
+
+.slides {
+  display: flex;
+  justify-content: center;
+}
+
+#stepOne {
+  transition: 0.5s;
+}
+
+#stepTwo {
+  position: absolute;
+  margin-left: 500px;
+  opacity: 0;
+  transition: 0.5s;
+}

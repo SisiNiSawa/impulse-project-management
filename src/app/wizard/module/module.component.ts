@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter} from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, ViewChild, ElementRef} from '@angular/core';
 
 import { Kanban } from '../../shared/kanban.model';
 
@@ -9,6 +9,8 @@ import { Kanban } from '../../shared/kanban.model';
 })
 export class WizardModuleComponent implements OnInit {
 
+  @ViewChild('stepOne') stepOne: ElementRef;
+  @ViewChild('stepTwo') stepTwo: ElementRef;
   @Output() back: EventEmitter<any> = new EventEmitter();
   @Output() module: EventEmitter<any> = new EventEmitter();
 
@@ -51,6 +53,26 @@ export class WizardModuleComponent implements OnInit {
     newKanban.name = this.moduleName;
     newKanban.icon = this.moduleIcon;
     this.module.emit(newKanban);
+  }
+
+  gotoStepTwo() {
+    this.stepOne.nativeElement.style.position = "absolute";
+    this.stepOne.nativeElement.style.marginLeft = "-1000px";
+    this.stepOne.nativeElement.style.opacity = 0;
+
+    this.stepTwo.nativeElement.style.position = "static";
+    this.stepTwo.nativeElement.style.marginLeft = 0;
+    this.stepTwo.nativeElement.style.opacity = 1;
+  }
+
+  gotoStepOne() {
+    this.stepOne.nativeElement.style.position = "staic";
+    this.stepOne.nativeElement.style.marginLeft = 0;
+    this.stepOne.nativeElement.style.opacity = 1;
+
+    this.stepTwo.nativeElement.style.position = "absolute";
+    this.stepTwo.nativeElement.style.marginLeft = "1000px";
+    this.stepTwo.nativeElement.style.opacity = 0;
   }
 
 }
