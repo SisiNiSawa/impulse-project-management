@@ -14,16 +14,15 @@ h1 {
 
 .edit {
   font-size: 1.3em;
-  color: #eff1f6;
   height: 1.6em;
   line-height: 29px;
   background-color: #626784;
   border-radius: 4px;
-  margin-top: 20px;
   margin-bottom: 10px;
 }
 
 .edit input {
+  color: #eff1f6;
   padding-left: 1.3em;
   height: 1.6em;
   line-height: 29px;
