@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 
 import { KanbanService } from '../kanban.service';
 import { DatabaseService } from '../../../database.service';
+import { PopupService } from '../../../popup.service';
 import { DragulaService } from 'ng2-dragula/ng2-dragula';
 
 import { KanbanCard } from '../../../shared/kanban-card.model';
@@ -22,7 +23,8 @@ export class KanbanCardComponent implements OnInit {
 
   constructor(
       private kanbanService: KanbanService,
-      private dbService: DatabaseService
+      private dbService: DatabaseService,
+      private popupService: PopupService
   ) { }
 
   ngOnInit() {}
@@ -31,8 +33,9 @@ export class KanbanCardComponent implements OnInit {
     let newItem = new KanbanItem;
     newItem._id = String(Date.now());
     newItem.shortDescription = "New Item";
-    this.kanbanService.createNewItem(this.card._id, newItem);
-    console.log("New item created");
+    this.kanbanService.createNewItem(this.card._id, newItem).then( () => {
+      this.popupService.viewKanbanItemInfo(newItem, newItem._id);
+    });
     this.card.items.push(newItem);
   }
 

@@ -108,14 +108,12 @@ export class DatabaseService {
   }
 
   addKanbanCardItem(cardID: string, item: KanbanItem) {
-    this.pouch.get(cardID).then( (card) => {
+    return this.pouch.get(cardID).then( (card) => {
       card.items.push(item._id);
 
       return this.pouch.put(card);
     }).then( () => {
       return this.pouch.put(item);
-    }).then( () => {
-      console.log(item);
     }).catch( (err) => {
       console.log(err);
     });

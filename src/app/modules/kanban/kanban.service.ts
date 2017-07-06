@@ -90,7 +90,7 @@ export class KanbanService {
   }
 
   createNewItem(cardID: string, item: KanbanItem) {
-    this.dbService.addKanbanCardItem(cardID, item);
+    return this.dbService.addKanbanCardItem(cardID, item);
   }
 
 }
