@@ -36,15 +36,23 @@
           <div class="color-picker">
             <button type="button" name="color-picker" class="color-btn"
             (click)="toggleDropdown()">
-              <span class="color-box"></span>
+              <span class="color-box"
+                [ngStyle]="{'background-color': viewItem.color}"
+                [ngClass]="{'color-none': viewItem.color === udefined}"
+              ></span>
             </button>
-            <div class="colors-dropdown">
+            <div class="colors-dropdown" [ngClass]="{'show': showDropdown}">
 
               <button type="button" name="color-picker" class="color-btn"
-              *ngFor="let color of itemColors">
+              (click)="updateColor(undefined)">
+                <span class="color-none"></span>
+              </button>
+
+              <button type="button" name="color-picker" class="color-btn"
+              *ngFor="let color of itemColors"
+              (click)="updateColor(color)">
                 <span class="color-box"
                   [ngStyle]="{'background-color': color}"
-                  [ngClass]="{'show-dropdwon': showDropdown}"
                 ></span>
               </button>
 
@@ -55,7 +63,7 @@
           (ngModelChange)="viewItem.shortDescription = $event">
         </div>
 
-        <div class="warning-container" *ngIf="viewItem.shortDescription.length > 25">
+        <div class="warning-container" *ngIf="viewItem?.shortDescription.length > 25">
           <p class="warning" >Names longer than 25 characters will appear cut off inside of the kanban card.</p>
         </div>
 

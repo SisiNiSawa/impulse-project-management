@@ -97,21 +97,19 @@ p {
 
 .colors-dropdown {
   display: none;
-  height: 0;
   opacity: 0;
   transition: 0.25s linear;
   position: absolute;
   margin-top: 2px;
-  width: 136px;
+  width: 137px;
   padding: 3px 5px;
   background-color: #3B4252;
   border: 2px solid #626784;
   border-radius: 4px;
 }
 
-.show-dropdown {
+.show {
   display: block;
-  height: auto;
   opacity: 1;
 }
 
@@ -120,10 +118,15 @@ p {
   margin-left: -2px;
   margin-top: 2px;
   border: none;
+  outline: none;
 }
 
 .colors-dropdown button:first-of-type {
   margin-left: 0;
+}
+
+.colors-dropdown button:nth-of-type(2) {
+  margin-left: -5px;
 }
 
 .colors-dropdown button:nth-of-type(5) {
@@ -145,8 +148,18 @@ p {
   padding: 0 8px;
   border: 2px solid #626784;
   border-radius: 3px;
-  background-color: steelblue;
-  transition: 0.25s;
+  transition: border .25s;
+}
+
+.color-none {
+  padding: 0 8px;
+  border: 2px solid #626784;
+  border-radius: 3px;
+  background: -moz-linear-gradient(top, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0) 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
+  transition: border .25s;
 }
 
 .shortDescription:focus {

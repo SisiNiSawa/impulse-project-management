@@ -1,5 +1,6 @@
 <ul class="noselect list-group " (click)="viewItemInfo()">
-  <li class="list-group-item">
+  <li class="list-group-item"
+  [ngStyle]="{'border-left': item.color ? '5px solid ' + item.color : 'none'}">
     <!-- slide-out delete -->
     <i class="fa fa-list" aria-hidden="true"></i>
     <div class="item">

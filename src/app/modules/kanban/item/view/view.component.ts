@@ -26,7 +26,6 @@ export class KanbanItemViewComponent implements OnInit {
     "#544579",
     "#904B6F",
     "#ACB05C",
-    "#3F7861",
   ];
 
   constructor(
@@ -50,6 +49,7 @@ export class KanbanItemViewComponent implements OnInit {
     // this shit is ghetto but it works
     this.item.description = this.viewItem.description;
     this.item.shortDescription = this.viewItem.shortDescription;
+    this.item.color = this.viewItem.color;
     this.clearPopups();
   }
 
@@ -58,6 +58,15 @@ export class KanbanItemViewComponent implements OnInit {
     this.dbService.kanbanRemoveItemFromCard(this.cardID, this.viewItem._id);
     this.kanbanService.removeItemFromArray(this.item._id, this.cardID);
     this.clearPopups();
+  }
+
+  updateColor(color: string) {
+    if (color) {
+      this.viewItem.color = color;
+    } else {
+      this.viewItem.color = undefined;
+    }
+    this.toggleDropdown();
   }
 
   toggleDropdown() {
