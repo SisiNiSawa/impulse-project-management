@@ -51,7 +51,7 @@ export class KanbanComponent implements OnInit {
     // [2] new element container
     // [3] original element container
     // [4] sibling of element in new container
-    this.dragula.drop.subscribe( (event) => {
+    this.dragula.drop.debounceTime(100).subscribe( (event) => {
       console.log(event);
       if (event[2] === event[3]) {
         // item moved inside of the same container
