@@ -16,6 +16,18 @@ export class KanbanItemViewComponent implements OnInit {
   item: KanbanItem;
   viewItem: KanbanItem;
   cardID: string;
+  showDropdown: boolean = false;
+
+  itemColors: string[] = [
+    "#B15C5C",
+    "#4A8D4A",
+    "#455078",
+    "#B1975C",
+    "#544579",
+    "#904B6F",
+    "#ACB05C",
+    "#3F7861",
+  ];
 
   constructor(
       private popupService: PopupService,
@@ -24,7 +36,6 @@ export class KanbanItemViewComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    // this.viewItem = JSON.parse(JSON.stringify(this.item));
     this.dbService.getEntryByID(this.item._id).then( (returnedItem) => {
       this.viewItem = returnedItem;
     });
@@ -47,6 +58,10 @@ export class KanbanItemViewComponent implements OnInit {
     this.dbService.kanbanRemoveItemFromCard(this.cardID, this.viewItem._id);
     this.kanbanService.removeItemFromArray(this.item._id, this.cardID);
     this.clearPopups();
+  }
+
+  toggleDropdown() {
+    this.showDropdown = !this.showDropdown;
   }
 
 }

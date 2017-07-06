@@ -5,34 +5,75 @@
       <h1>Viewing item details <i class="fa fa-times" aria-hidden="true" (click)="clearPopups()"></i></h1>
 
       <!-- Edit mode -->
-      <div class="view-container">
-        <p>Item Name</p>
-        <input class="shortDescription" type="text"
-        [ngModel]="viewItem?.shortDescription"
-        (ngModelChange)="viewItem.shortDescription = $event">
-      </div>
 
-      <div class="warning-container" *ngIf="viewItem.shortDescription.length > 25">
-        <p class="warning" >Names longer than 25 characters will appear cut off inside of the kanban card.</p>
+      <!-- <div class="edit-mode">
 
-      </div>
+        <label for="item-name">Item Name</label>
+        <div class="input-group">
+          <span class="input-group-btn">
+            <button type="button" class="btn btn-secondary">#</button>
+          </span>
+          <input id="item-name" type="text" class="form-control" placeholder="Item Details">
+        </div>
 
-      <div class="view-container">
-        <p>Item Contents</p>
-        <textarea class="description"
-        [ngModel]="viewItem?.description"
-        (ngModelChange)="viewItem.description = $event"
-        ></textarea>
-      </div>
+        <label for="item-description">Item Contents</label>
+        <div class="input-group">
+          <textarea class="form-control"></textarea>
+        </div>
 
-      <div class="controls">
-        <button id="cancel" type="button" class="button button-negative"
-        (click)="removeItem()">Delete</button>
-
-        <button (click)="updateItem()" type="submit" class="button button-positive">Save</button>
-      </div>
+      </div> -->
 
       <!-- End edit mode -->
+
+      <!-- ########################################## -->
+
+      <!-- Temporary comment out -->
+
+      <div class="edit-mode">
+
+        <div class="view-container">
+          <p>Item Name</p>
+          <div class="color-picker">
+            <button type="button" name="color-picker" class="color-btn"
+            (click)="toggleDropdown()">
+              <span class="color-box"></span>
+            </button>
+            <div class="colors-dropdown">
+
+              <button type="button" name="color-picker" class="color-btn"
+              *ngFor="let color of itemColors">
+                <span class="color-box"
+                  [ngStyle]="{'background-color': color}"
+                  [ngClass]="{'show-dropdwon': showDropdown}"
+                ></span>
+              </button>
+
+            </div>
+          </div>
+          <input class="shortDescription" type="text"
+          [ngModel]="viewItem?.shortDescription"
+          (ngModelChange)="viewItem.shortDescription = $event">
+        </div>
+
+        <div class="warning-container" *ngIf="viewItem.shortDescription.length > 25">
+          <p class="warning" >Names longer than 25 characters will appear cut off inside of the kanban card.</p>
+        </div>
+
+        <div class="view-container">
+          <p>Item Contents</p>
+          <textarea class="description"
+          [ngModel]="viewItem?.description"
+          (ngModelChange)="viewItem.description = $event"
+          ></textarea>
+        </div>
+
+        <div class="controls">
+          <button id="cancel" type="button" class="button button-negative"
+          (click)="removeItem()">Delete</button>
+
+          <button (click)="updateItem()" type="submit" class="button button-positive">Save</button>
+        </div>
+      </div>
 
     </div>
 

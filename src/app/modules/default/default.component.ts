@@ -26,13 +26,14 @@ export class DefaultComponent implements OnInit {
   ) { }
 
   firstTime: boolean = false;
+  obsv;
 
   ngOnInit() {
     if (!this.sidebarService.projects) {
       this.firstTime = true;
     }
     this.randomizeHint();
-    Observable.interval(8000).subscribe(x => {
+    this.obsv = Observable.interval(8000).subscribe(observer => {
       this.randomizeHint();
     });
   }
@@ -43,12 +44,15 @@ export class DefaultComponent implements OnInit {
 
   randomizeHint() {
     let n: number;
-    let max = this.hintArray.length + 1;
+    let max = this.hintArray.length;
     while (n === this.hintN) {
       n = Math.floor(Math.random() * max);
-      console.log(n);
     }
     this.hint = this.hintArray[n];
+  }
+
+  ngOnDestroy() {
+    this.obsv.unsubscribe();
   }
 
 }

@@ -20,6 +20,7 @@ import { WizardComponent } from '../wizard/wizard.component';
 export class ContentAreaComponent implements OnInit {
 
   selectedItem: any;
+  currentComponent: any;
 
   constructor(
     private viewContainer: ViewContainerRef,
@@ -62,6 +63,9 @@ export class ContentAreaComponent implements OnInit {
   }
 
   clearContentArea() {
+    // if (this.currentComponent) {
+    //   this.currentComponent.destroy();
+    // }
     this.viewContainer.clear();
   }
 
@@ -69,6 +73,7 @@ export class ContentAreaComponent implements OnInit {
     this.clearContentArea();
     let comp = this.componentFactoryResolver.resolveComponentFactory(component);
     let compRef = this.viewContainer.createComponent(comp);
+    this.currentComponent = compRef;
   }
 
   onChangedItem() {
