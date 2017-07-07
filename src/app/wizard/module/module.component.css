@@ -86,7 +86,7 @@ label {
 
 #stepTwo {
   position: absolute;
-  margin-left: 500px;
+  margin-left: 2000px;
   opacity: 0;
   transition: 0.5s;
 }

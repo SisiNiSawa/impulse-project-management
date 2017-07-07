@@ -11,9 +11,9 @@
       <!-- edit area -->
 
       <div class="edit" *ngIf="editMode === true">
+        <i (click)="deleteCard()" class="fa fa-trash-o" aria-hidden="true"></i>
         <input #name type="text" [value]="card.name" class="edit-header"
         (keyup.enter)="onPressEnter(name.value)" auto-focus>
-        <i (click)="deleteCard()" class="fa fa-trash-o" aria-hidden="true"></i>
       </div>
 
 

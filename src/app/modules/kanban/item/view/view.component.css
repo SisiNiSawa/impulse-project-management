@@ -15,11 +15,11 @@
   background-color: #282a36;
   margin-top: 3em;
   color: #ECEFF4;
-  width: 40em;
+  width: 60vw;
   border-radius: 6px;
   border: 2px solid #626784;
   padding-bottom: 15px;
-  min-height: 450px;
+  height: 85vh;
 }
 
 h1 {
@@ -64,8 +64,7 @@ p {
   background-color: #3B4252;
   outline: none;
   resize: none;
-  min-height: 300px;
-  min-width: 450px;
+  min-width: 45vw;
   border: 2px solid #626784;
   border-radius: 4px;
   padding-left: 5px;
@@ -73,6 +72,16 @@ p {
 
 .view-container {
   margin: 0 auto;
+}
+
+.textarea-container {
+  display: flex;
+  flex-flow: column;
+  flex: 1 1 auto;
+}
+
+.textarea-container textarea {
+  flex: 1 1 auto;
 }
 
 .shortDescription {
@@ -182,4 +191,5 @@ p {
   display: flex;
   justify-content: center;
   flex-direction: column;
+  height: 77vh;
 }

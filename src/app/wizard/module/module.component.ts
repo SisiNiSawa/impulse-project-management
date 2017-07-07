@@ -57,7 +57,7 @@ export class WizardModuleComponent implements OnInit {
 
   gotoStepTwo() {
     this.stepOne.nativeElement.style.position = "absolute";
-    this.stepOne.nativeElement.style.marginLeft = "-1000px";
+    this.stepOne.nativeElement.style.marginLeft = "-2000px";
     this.stepOne.nativeElement.style.opacity = 0;
 
     this.stepTwo.nativeElement.style.position = "static";
@@ -71,7 +71,7 @@ export class WizardModuleComponent implements OnInit {
     this.stepOne.nativeElement.style.opacity = 1;
 
     this.stepTwo.nativeElement.style.position = "absolute";
-    this.stepTwo.nativeElement.style.marginLeft = "1000px";
+    this.stepTwo.nativeElement.style.marginLeft = "2000px";
     this.stepTwo.nativeElement.style.opacity = 0;
   }
 
