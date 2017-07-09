@@ -35,12 +35,18 @@ export class ProjectComponent implements OnInit {
     if (module.type === "kanban") {
       this.dbService.addNewKanbanModule(this.project._id, module);
       this.project.modules.push(module);
+    } else if (module.type === "markdown") {
+      this.dbService.addNewMarkdownModule(this.project._id, module);
+      this.project.modules.push(module);
     }
+    this.moveToModule(module);
     this.cancelModule();
   }
 
   moveToModule(module: any) {
-    this.sidebarService.onSelectItem(module);
+    setTimeout( () => {
+      this.sidebarService.onSelectItem(module);
+    }, 150)
   }
 
 }

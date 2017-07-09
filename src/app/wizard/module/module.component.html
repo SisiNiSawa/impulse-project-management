@@ -12,21 +12,31 @@
 
       <!-- eventually, there will be multiple, interactive module examples here -->
       <!-- currently, we'll just use images for available modules -->
-      <div>
-        <h2>Kanban Board</h2>
-        <p class="info">Drag and drop items between cards to visualize progression</p>
-        <div class="kanban">
-          <img class="module noselect" src="./assets/kanban.png">
+      <div class="module-selector">
+
+        <div class="module" *ngIf="moduleIndex === 1">
+          <h2>Kanban Board</h2>
+          <p class="info">Drag and drop items between cards to visualize progression</p>
+          <div class="kanban">
+            <img class="module-img noselect" src="./assets/kanban.png">
+          </div>
         </div>
+
+        <div class="module" *ngIf="moduleIndex === 2">
+          <h2>Markdown</h2>
+          <p class="info">Use markdown syntax to create design documents, notes or lorem ipsum for your projects.</p>
+          <div class="markdown">
+            <img class="module-img noselect" src="./assets/kanban.png">
+          </div>
+        </div>
+
       </div>
+
 
       <div class="module-controls">
-        <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        <p class="info">Kanban</p>
-        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+        <i class="fa fa-chevron-left" aria-hidden="true" (click)="changeModule(-1)"></i>
+        <i class="fa fa-chevron-right" aria-hidden="true" (click)="changeModule(1)"></i>
       </div>
-
-      <p class="info">Developer note: Kanban is the only module available at the moment.</p>
 
       <div class="controls">
         <button class="button button-negative" (click)="goBack()">Back</button>
@@ -46,7 +56,7 @@
 
       <div class="controls">
         <button class="button button-negative" (click)="gotoStepOne()">Back</button>
-        <button class="button button-positive" (click)="createKanban()">Create</button>
+        <button class="button button-positive" (click)="createModule()">Create</button>
       </div>
 
     </div>

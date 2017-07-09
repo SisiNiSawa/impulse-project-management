@@ -45,7 +45,7 @@ label {
   justify-content: space-between;
 }
 
-.module {
+.module-img {
   max-height: 140px;
 }
 
@@ -89,4 +89,13 @@ label {
   margin-left: 2000px;
   opacity: 0;
   transition: 0.5s;
+}
+
+.module-selector {
+  width: 610px;
+}
+
+.module {
+  max-width: 610px;
+  transition: 0.25s;
 }

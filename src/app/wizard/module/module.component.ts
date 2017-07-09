@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter, ViewChild, ElementRef} from '@angular/core';
 
 import { Kanban } from '../../shared/kanban.model';
+import { Markdown } from '../../shared/markdown.model';
 
 @Component({
   selector: 'app-wizard-module',
@@ -18,6 +19,7 @@ export class WizardModuleComponent implements OnInit {
   step: number = 1;
   moduleName: string;
   moduleIcon: string;
+  moduleIndex: number = 1;
 
   constructor() { }
 
@@ -47,12 +49,28 @@ export class WizardModuleComponent implements OnInit {
     this.moduleIcon = String(event);
   }
 
+  createModule() {
+    if (this.moduleIndex === 1) {
+      this.createKanban();
+    } else if (this.moduleIndex === 2) {
+      this.createMarkdown();
+    }
+  }
+
   createKanban() {
     let newKanban = new Kanban;
     newKanban._id = String(Date.now());
     newKanban.name = this.moduleName;
     newKanban.icon = this.moduleIcon;
     this.module.emit(newKanban);
+  }
+
+  createMarkdown() {
+    let newMarkdown = new Markdown;
+    newMarkdown._id = String(Date.now());
+    newMarkdown.name = this.moduleName;
+    newMarkdown.icon = this.moduleIcon;
+    this.module.emit(newMarkdown);
   }
 
   gotoStepTwo() {
@@ -73,6 +91,16 @@ export class WizardModuleComponent implements OnInit {
     this.stepTwo.nativeElement.style.position = "absolute";
     this.stepTwo.nativeElement.style.marginLeft = "2000px";
     this.stepTwo.nativeElement.style.opacity = 0;
+  }
+
+  changeModule(i: number) {
+    this.moduleIndex = this.moduleIndex + i;
+    // shit code
+    if (this.moduleIndex < 1) {
+      this.moduleIndex = 2;
+    } else if (this.moduleIndex > 2) {
+      this.moduleIndex = 1;
+    }
   }
 
 }
