@@ -14,7 +14,7 @@ import { WizardComponent } from './wizard/wizard.component';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
+  styleUrls: ['./app.component.css', '../assets/css/prism.css'],
   encapsulation: ViewEncapsulation.None,
   entryComponents: [NewProjectComponent, NewModuleComponent, KanbanComponent, KanbanItemViewComponent, DefaultComponent, ProjectComponent, MarkdownComponent, WizardComponent]
 

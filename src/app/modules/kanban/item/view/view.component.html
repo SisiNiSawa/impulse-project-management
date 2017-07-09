@@ -36,9 +36,15 @@
         </div>
 
         <div class="view-container textarea-container">
-          <div Markdown class="view-description" *ngIf="viewItem.description">
+
+          <!-- <div Markdown class="view-description markdown" *ngIf="viewItem.description">
             {{ viewItem.description }}
-          </div>
+          </div> -->
+
+          <markdown class="view-description markdown" *ngIf="viewItem.description">
+            {{ viewItem.description }}
+          </markdown>
+
         </div>
 
         <div class="controls">

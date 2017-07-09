@@ -236,3 +236,8 @@ p {
 .view-sd {
   font-size: 1.1em;
 }
+
+.markdown {
+  padding: 10px;
+  flex: 1 1 auto;
+}
