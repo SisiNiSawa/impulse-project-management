@@ -14,7 +14,7 @@ export class DefaultComponent implements OnInit {
   hintN: number;
   hintArray: string[] = [
     "Create more modules for your project by clicking on it in the sidebar",
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    "Markdown syntax is supported in kanban items! Give it a try.",
     "Donec cursus risus id felis fermentum viverra.",
     "Duis vitae justo dolor.",
     "Donec eu est ultricies, laoreet diam in, malesuada enim.",

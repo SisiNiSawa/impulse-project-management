@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { DatabaseService } from '../../../../database.service';
 import { PopupService } from '../../../../popup.service';
 import { KanbanService } from '../../kanban.service';
+import { MarkdownService } from 'angular2-markdown';
 
 import { KanbanItem } from '../../../../shared/kanban-item.model';
 
@@ -17,6 +18,7 @@ export class KanbanItemViewComponent implements OnInit {
   viewItem: KanbanItem;
   cardID: string;
   showDropdown: boolean = false;
+  editMode: boolean = false;
 
   itemColors: string[] = [
     "#B15C5C",
@@ -31,13 +33,18 @@ export class KanbanItemViewComponent implements OnInit {
   constructor(
       private popupService: PopupService,
       private dbService: DatabaseService,
-      private kanbanService: KanbanService
+      private kanbanService: KanbanService,
+      private _markdown: MarkdownService
   ) { }
 
   ngOnInit() {
     this.dbService.getEntryByID(this.item._id).then( (returnedItem) => {
       this.viewItem = returnedItem;
     });
+
+    this._markdown.renderer.link = (href: string, title: string, text: string) => {
+      return `<a href="${href}" target="_blank" title="${title}">${text}</a>`;
+    }
   }
 
   clearPopups() {
@@ -50,7 +57,16 @@ export class KanbanItemViewComponent implements OnInit {
     this.item.description = this.viewItem.description;
     this.item.shortDescription = this.viewItem.shortDescription;
     this.item.color = this.viewItem.color;
-    this.clearPopups();
+    // update the reference so we get the new revision id
+    this.updateItemReference().then( () => {
+      this.toggleEditMode()
+    });
+  }
+
+  updateItemReference() {
+    return this.dbService.getEntryByID(this.viewItem._id).then( (item) => {
+      this.viewItem = item;
+    });
   }
 
   removeItem() {
@@ -71,6 +87,10 @@ export class KanbanItemViewComponent implements OnInit {
 
   toggleDropdown() {
     this.showDropdown = !this.showDropdown;
+  }
+
+  toggleEditMode() {
+    this.editMode = !this.editMode;
   }
 
 }

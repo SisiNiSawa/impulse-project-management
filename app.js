@@ -44,4 +44,10 @@ app.on("ready", function() {
     mainWindow.webContents.openDevTools({detach:true});
   }
 
+  // whenever a new window is opened, redirect to the default browser
+  mainWindow.webContents.on('new-window', function(e, url) {
+    e.preventDefault();
+    electron.shell.openExternal(url);
+  });
+
 });

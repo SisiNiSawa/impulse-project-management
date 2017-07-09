@@ -29,7 +29,28 @@
 
       <!-- Temporary comment out -->
 
-      <div class="edit-mode">
+      <div class="view-mode" *ngIf="!editMode">
+
+        <div class="view-container">
+          <p class="shortDescrption view-sd">{{ viewItem?.shortDescription }}</p>
+        </div>
+
+        <div class="view-container textarea-container">
+          <div Markdown class="view-description" *ngIf="viewItem.description">
+            {{ viewItem.description }}
+          </div>
+        </div>
+
+        <div class="controls">
+          <button id="cancel" type="button" class="button button-negative"
+          (click)="removeItem()">Delete</button>
+
+          <button (click)="toggleEditMode()" type="submit" class="button button-edit">Edit</button>
+        </div>
+
+      </div>
+
+      <div class="edit-mode" *ngIf="editMode">
 
         <div class="view-container">
           <p>Item Name</p>
@@ -37,8 +58,8 @@
             <button type="button" name="color-picker" class="color-btn"
             (click)="toggleDropdown()">
               <span class="color-box"
-                [ngStyle]="{'background-color': viewItem.color}"
-                [ngClass]="{'color-none': viewItem.color === udefined}"
+                [ngStyle]="{'background-color': viewItem?.color}"
+                [ngClass]="{'color-none': viewItem?.color === udefined}"
               ></span>
             </button>
             <div class="colors-dropdown" [ngClass]="{'show': showDropdown}">

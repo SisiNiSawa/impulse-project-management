@@ -80,7 +80,7 @@ p {
   flex: 1 1 auto;
 }
 
-.textarea-container textarea {
+.textarea-container textarea, .textarea-container div {
   flex: 1 1 auto;
 }
 
@@ -183,6 +183,8 @@ p {
   margin: 0 20px;
   display: flex;
   justify-content: space-between;
+  align-items: flex-end;
+  padding-top: 12px;
 }
 
 .edit-mode {
@@ -192,4 +194,45 @@ p {
   justify-content: center;
   flex-direction: column;
   height: 77vh;
+}
+
+.view-mode {
+  margin-top: 1em;
+  padding: 0 1em;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 77vh;
+}
+
+.view-description {
+  color: #ECEFF4;
+  margin: 10px auto;
+  display: block;
+  background-color: #363949;
+  min-width: 45vw;
+  border-radius: 4px;
+  padding-left: 5px;
+  overflow-x: auto;
+}
+
+::-webkit-scrollbar-track
+{
+	background-color: #414458;
+}
+
+::-webkit-scrollbar
+{
+	width: 8px;
+	background-color: #414458;
+}
+
+::-webkit-scrollbar-thumb
+{
+	border-radius: 100px;
+	background-color: #626784;
+}
+
+.view-sd {
+  font-size: 1.1em;
 }

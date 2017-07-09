@@ -134,7 +134,17 @@ body, html {
 
 .button-primary:hover, .button-primary:focus {
   color: #262B34;
-  box-shadow: inset 7.5em 0 0 0 #8B97B2;
+  box-shadow: inset 8em 0 0 0 #8B97B2;
+}
+
+.button-edit {
+  color: #FFE4C1;
+  border: 2px solid #FFE4C1;
+}
+
+.button-edit:hover, .button-edit:focus {
+  color: #4d2b00;
+  box-shadow: inset 7em 0 0 0 #FFE4C1;
 }
 
 /* Dragula because I can't be fucked to figure out how to import css */

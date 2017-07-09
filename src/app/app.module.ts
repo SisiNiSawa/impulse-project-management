@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { DragulaModule } from 'ng2-dragula/ng2-dragula';
+import { MarkdownModule } from 'angular2-markdown';
 
 import { AppComponent } from './app.component';
 import { KanbanComponent } from './modules/kanban/kanban.component';
@@ -59,7 +60,8 @@ import { WizardModuleComponent } from './wizard/module/module.component';
   imports: [
     BrowserModule,
     FormsModule,
-    DragulaModule
+    DragulaModule,
+    MarkdownModule.forRoot()
   ],
   providers: [DatabaseService, SidebarService, PopupService, PopupDirective, KanbanService],
   bootstrap: [AppComponent]
