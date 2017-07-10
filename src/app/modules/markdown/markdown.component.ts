@@ -24,7 +24,10 @@ export class MarkdownComponent implements OnInit {
   markdown: Markdown;
 
   ngOnInit() {
-    this.markdown = this.sidebarService.selectedItem;
+    // always get an up to date version of the markdown editor
+    this.dbService.getEntryByID(this.sidebarService.selectedItem._id).then( (markdown) => {
+      this.markdown = markdown;
+    });
   }
 
   toggleEditMode() {
@@ -32,7 +35,11 @@ export class MarkdownComponent implements OnInit {
   }
 
   saveMarkdown() {
-    this.dbService.updateItem(this.markdown);
+    this.dbService.updateItem(this.markdown).then( () => {
+      this.dbService.getEntryByID(this.markdown._id).then( (markdown) => {
+        this.markdown = markdown;
+      });
+    });
     this.toggleEditMode();
   }
 

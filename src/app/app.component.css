@@ -158,6 +158,6 @@ markdown a:hover {
   color: #a3a9c2;
 }
 
-markdown h1 {
+markdown h1, h2, h3, h4, h5, h6 {
   text-align: center;
 }
