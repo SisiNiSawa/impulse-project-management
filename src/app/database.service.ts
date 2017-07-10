@@ -56,6 +56,12 @@ export class DatabaseService {
     });
   }
 
+  updateItem(item: any) {
+    return this.pouch.put(item).catch( (err) => {
+      console.log(err);
+    });
+  }
+
   // =========================================
   // database functions for adding new entries
   // =========================================

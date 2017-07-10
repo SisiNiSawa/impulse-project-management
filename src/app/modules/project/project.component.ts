@@ -39,14 +39,11 @@ export class ProjectComponent implements OnInit {
       this.dbService.addNewMarkdownModule(this.project._id, module);
       this.project.modules.push(module);
     }
-    this.moveToModule(module);
     this.cancelModule();
   }
 
   moveToModule(module: any) {
-    setTimeout( () => {
-      this.sidebarService.onSelectItem(module);
-    }, 150)
+    this.sidebarService.onSelectItem(module);
   }
 
 }
