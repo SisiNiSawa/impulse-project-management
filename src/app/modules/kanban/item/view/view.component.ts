@@ -38,6 +38,7 @@ export class KanbanItemViewComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    // so we always get an up to date version of our item
     this.dbService.getEntryByID(this.item._id).then( (returnedItem) => {
       this.viewItem = returnedItem;
     });

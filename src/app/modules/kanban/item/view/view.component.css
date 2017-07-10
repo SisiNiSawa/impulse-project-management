@@ -216,23 +216,6 @@ p {
   overflow-x: auto;
 }
 
-::-webkit-scrollbar-track
-{
-	background-color: #414458;
-}
-
-::-webkit-scrollbar
-{
-	width: 8px;
-	background-color: #414458;
-}
-
-::-webkit-scrollbar-thumb
-{
-	border-radius: 100px;
-	background-color: #626784;
-}
-
 .view-sd {
   font-size: 1.1em;
 }

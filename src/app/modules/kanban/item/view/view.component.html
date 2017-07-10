@@ -4,31 +4,6 @@
     <div class="window">
       <h1>Viewing item details <i class="fa fa-times" aria-hidden="true" (click)="clearPopups()"></i></h1>
 
-      <!-- Edit mode -->
-
-      <!-- <div class="edit-mode">
-
-        <label for="item-name">Item Name</label>
-        <div class="input-group">
-          <span class="input-group-btn">
-            <button type="button" class="btn btn-secondary">#</button>
-          </span>
-          <input id="item-name" type="text" class="form-control" placeholder="Item Details">
-        </div>
-
-        <label for="item-description">Item Contents</label>
-        <div class="input-group">
-          <textarea class="form-control"></textarea>
-        </div>
-
-      </div> -->
-
-      <!-- End edit mode -->
-
-      <!-- ########################################## -->
-
-      <!-- Temporary comment out -->
-
       <div class="view-mode" *ngIf="!editMode">
 
         <div class="view-container">
@@ -37,11 +12,7 @@
 
         <div class="view-container textarea-container">
 
-          <!-- <div Markdown class="view-description markdown" *ngIf="viewItem.description">
-            {{ viewItem.description }}
-          </div> -->
-
-          <markdown class="view-description markdown" *ngIf="viewItem.description">
+          <markdown class="view-description markdown" *ngIf="viewItem">
             {{ viewItem.description }}
           </markdown>
 

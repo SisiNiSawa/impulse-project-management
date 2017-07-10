@@ -147,17 +147,52 @@ body, html {
   box-shadow: inset 7em 0 0 0 #FFE4C1;
 }
 
+/* global scrollbar, may regret this later */
+::-webkit-scrollbar-track
+{
+	background-color: #414458;
+}
+
+::-webkit-scrollbar
+{
+	width: 8px;
+	background-color: #414458;
+}
+
+::-webkit-scrollbar-thumb
+{
+	border-radius: 100px;
+	background-color: #626784;
+}
+
 /* Dragula because I can't be fucked to figure out how to import css */
 .gu-mirror{position:fixed!important;margin:0!important;z-index:9999!important;opacity:.8;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";filter:alpha(opacity=80)}.gu-hide{display:none!important}.gu-unselectable{-webkit-user-select:none!important;-moz-user-select:none!important;-ms-user-select:none!important;user-select:none!important}.gu-transit{opacity:.2;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=20)";filter:alpha(opacity=20)}
 
 /* markdown related */
 markdown a {
   color: #8D94B3;
+  text-shadow: 0 0  3px rgba(189, 184, 208, 0.4);
+  transition: 0.25s;
 }
 markdown a:hover {
   color: #a3a9c2;
+  text-shadow: 0 0  3px rgba(189, 184, 208, 0.4);
 }
 
 markdown h1, h2, h3, h4, h5, h6 {
+  color: #BDB8D0;
+  text-shadow: 0 0  5px rgba(189, 184, 208, 0.4);
   text-align: center;
+}
+
+markdown img:before {
+  text-align: center;
+}
+
+markdown .md-img {
+  text-align: center;
+}
+
+markdown li {
+  color: #FFE4C1;
 }

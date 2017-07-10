@@ -28,6 +28,7 @@ export class MarkdownComponent implements OnInit {
     this.dbService.getEntryByID(this.sidebarService.selectedItem._id).then( (markdown) => {
       this.markdown = markdown;
     });
+    this.markdownStyling();
   }
 
   toggleEditMode() {
@@ -36,11 +37,29 @@ export class MarkdownComponent implements OnInit {
 
   saveMarkdown() {
     this.dbService.updateItem(this.markdown).then( () => {
+      // update the revision for future edits
       this.dbService.getEntryByID(this.markdown._id).then( (markdown) => {
         this.markdown = markdown;
       });
     });
     this.toggleEditMode();
+  }
+
+  markdownStyling() {
+    // add target _blank to all links so they open in the user's default browser
+    this._markdown.renderer.link = (href: string, title: string, text: string) => {
+      return `<a href="${href}" target="_blank" title="${title}">${text}</a>`;
+    }
+    // allows images to be centered and links to open in user's default browser
+    this._markdown.renderer.image = (href: string, title: string, text: string) => {
+      return `
+      <p class="md-img">
+        <a href=${href} target="_blank">
+          <img src=${href} alt=${title}>
+        </a>
+      </p>
+      `
+    }
   }
 
 }

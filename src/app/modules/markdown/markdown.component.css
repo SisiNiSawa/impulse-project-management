@@ -31,6 +31,10 @@ h1 {
   background: url("../../../assets/noise.png");
 }
 
+.overflow {
+  overflow-y: auto;
+}
+
 .content textarea {
   padding: 5px 10px;
   color: #e2e3e9;
