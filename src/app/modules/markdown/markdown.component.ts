@@ -50,16 +50,6 @@ export class MarkdownComponent implements OnInit {
     this._markdown.renderer.link = (href: string, title: string, text: string) => {
       return `<a href="${href}" target="_blank" title="${title}">${text}</a>`;
     }
-    // allows images to be centered and links to open in user's default browser
-    this._markdown.renderer.image = (href: string, title: string, text: string) => {
-      return `
-      <p class="md-img">
-        <a href=${href} target="_blank">
-          <img src=${href} alt=${title}>
-        </a>
-      </p>
-      `
-    }
   }
 
 }

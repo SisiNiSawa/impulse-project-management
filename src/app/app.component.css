@@ -182,15 +182,10 @@ markdown a:hover {
 markdown h1, h2, h3, h4, h5, h6 {
   color: #BDB8D0;
   text-shadow: 0 0  5px rgba(189, 184, 208, 0.4);
-  text-align: center;
 }
 
-markdown img:before {
-  text-align: center;
-}
-
-markdown .md-img {
-  text-align: center;
+markdown img {
+  max-height: 15em;
 }
 
 markdown li {
