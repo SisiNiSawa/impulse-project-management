@@ -157,3 +157,7 @@ markdown a {
 markdown a:hover {
   color: #a3a9c2;
 }
+
+markdown h1 {
+  text-align: center;
+}

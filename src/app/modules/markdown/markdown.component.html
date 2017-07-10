@@ -7,7 +7,7 @@
       (click)="toggleEditMode()">Edit</button>
       <button class="button button-positive pull-right"
       *ngIf="editMode"
-      (click)="toggleEditMode()">Save</button>
+      (click)="saveMarkdown()">Save</button>
     </div>
 
     <div class="content" *ngIf="!editMode">

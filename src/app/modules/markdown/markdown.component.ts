@@ -33,6 +33,7 @@ export class MarkdownComponent implements OnInit {
 
   saveMarkdown() {
     this.dbService.updateItem(this.markdown);
+    this.toggleEditMode();
   }
 
 }
