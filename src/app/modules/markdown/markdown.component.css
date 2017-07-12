@@ -28,7 +28,7 @@ h1 {
   flex: 1;
   border-radius: 2px;
   padding: 5px;
-  background: url("../../../assets/noise.png");
+  /*background: url("../../../assets/noise-bg-light.png");*/
 }
 
 .overflow {
