@@ -53,7 +53,11 @@ export class ProjectComponent implements OnInit {
         this.sidebarService.removeByID(module._id);
       });
     } else if (module.type === "markdown") {
-      console.log("not working yet :(");
+      this.dbService.removeEntryByID(module._id).then( () => {
+        this.dbService.removeModuleFromProject(module._id, this.project._id);
+      }).then( () => {
+        this.sidebarService.removeByID(module._id);
+      });
     }
   }
 

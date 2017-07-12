@@ -269,4 +269,17 @@ export class DatabaseService {
       console.log(err);
     });
   }
+
+  removeModuleFromProject(moduleID: string, projectID: string) {
+    return this.getEntryByID(projectID).then( (project) => {
+      for (let i = 0; i < project.modules.length; i++) {
+        if (project.modules[i] === moduleID) {
+          project.modules.splice(i, 1);
+          break;
+        }
+      }
+      return this.updateItem(project);
+    });
+  }
+  
 }
