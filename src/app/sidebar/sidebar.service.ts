@@ -35,4 +35,16 @@ export class SidebarService {
     this.observer.next("projectWizard");
   }
 
+  removeByID(ID: string) {
+    for (let i = 0; i < this.projects.length; i++) {
+      for (let n = 0; n < this.projects[i].modules.length; n++) {
+        if (this.projects[i].modules[n]._id === ID) {
+          this.projects[i].modules.splice(n, 1);
+          this.updateProjects();
+          return;
+        }
+      }
+    }
+  }
+
 }

@@ -226,4 +226,47 @@ export class DatabaseService {
       })
     });
   }
+
+  // now is when I start to wonder if references were the best choice
+  // should probably split this up into seperate functions
+  removeKanbanModule(kanbanID: string, projectID: string) {
+    let cardIDs: string[] = [];
+    let itemIDs: string[] = [];
+    return this.getEntryByID(kanbanID).then( (kanban: Kanban) => {
+      // should have all of the card ids now
+      cardIDs = kanban.cards;
+      return Promise.all(kanban.cards.map( (cardID) => {
+        return this.getEntryByID(cardID).then( (card: KanbanCard) => {
+          card.items.forEach( (itemID) => {
+            // filling up the array with item ids inside of each card
+            itemIDs.push(itemID);
+          });
+        });
+      })).then( () => {
+        // we should have all the ids now, start removing them
+        return Promise.all(itemIDs.map( (itemID) => {
+          return this.removeEntryByID(itemID);
+        })).then( () => {
+          return Promise.all(cardIDs.map( (cardID) => {
+            return this.removeEntryByID(cardID);
+          }));
+        });
+      });
+    }).then( () => {
+      // finally, we can delete the module
+      this.removeEntryByID(kanbanID);
+      // and remove it from our projects array
+      return this.getEntryByID(projectID).then( (project: Project) => {
+        for (let i = 0; i < project.modules.length; i++) {
+          if (project.modules[i] === kanbanID) {
+            project.modules.splice(i, 1);
+            break;
+          }
+        }
+        return this.updateItem(project);
+      });
+    }).catch( (err) => {
+      console.log(err);
+    });
+  }
 }

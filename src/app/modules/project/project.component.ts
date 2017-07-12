@@ -46,4 +46,15 @@ export class ProjectComponent implements OnInit {
     this.sidebarService.onSelectItem(module);
   }
 
+  removeModule(event: Event, module: any) {
+    event.stopPropagation();
+    if (module.type === "kanban") {
+      this.dbService.removeKanbanModule(module._id, this.project._id).then( () => {
+        this.sidebarService.removeByID(module._id);
+      });
+    } else if (module.type === "markdown") {
+      console.log("not working yet :(");
+    }
+  }
+
 }
