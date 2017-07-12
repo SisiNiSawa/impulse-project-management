@@ -23,6 +23,9 @@ li {
 }
 
 nav {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
   margin-top: 15px;
   padding-right: 2px;
 }
