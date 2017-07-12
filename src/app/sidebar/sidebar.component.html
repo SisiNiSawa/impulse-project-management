@@ -7,11 +7,17 @@
       [ngClass]="{show: dropdownVisible}"
       (mouseenter)="mouseEnterMenu()"
       (mouseleave)="mouseLeaveMenu()">
-        <div class="side-btn" (click)="newProject($event)">
-          New Project
+        <div class="side-btn" (click)="goHome()">
+          <i class="fa fa-home fa-fw" aria-hidden="true"></i> Home
         </div>
-        <div class="side-btn" (click)="newModule($event)">
-          New Module
+        <div class="side-btn" (click)="newProject($event)">
+          <i class="fa fa-bolt fa-fw" aria-hidden="true"></i> Project Wizard
+        </div>
+        <div class="side-btn">
+          <i class="fa fa-archive fa-fw" aria-hidden="true"></i> Backup and Restore
+        </div>
+        <div class="side-btn">
+          <i class="fa fa-github fa-fw" aria-hidden="true"></i> Github
         </div>
       </div>
     </div>

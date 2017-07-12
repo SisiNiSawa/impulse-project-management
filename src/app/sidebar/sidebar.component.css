@@ -65,6 +65,7 @@ nav {
   border: 1px solid #414458;
   border-radius: 6px;
   transition: 0.2s linear;
+  cursor: pointer;
 }
 
 .btn-header:hover {

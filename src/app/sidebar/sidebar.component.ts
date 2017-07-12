@@ -114,8 +114,9 @@ export class SidebarComponent implements OnInit {
   }
 
   newProject(event: Event) {
+    this.dropdownVisible = false;
     event.stopPropagation();
-    this.popupService.newProjectPopup();
+    this.sidebarService.initProjectWizard();
   }
 
   newModule(event: Event) {
@@ -123,6 +124,12 @@ export class SidebarComponent implements OnInit {
     if (this.selectedType === "project") {
       this.popupService.newModulePopup();
     }
+  }
+
+  goHome(event: Event) {
+    this.dropdownVisible = false;
+    event.stopPropagation();
+    this.sidebarService.onSelectNothing();
   }
 
 }
