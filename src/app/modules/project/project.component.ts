@@ -38,6 +38,9 @@ export class ProjectComponent implements OnInit {
     } else if (module.type === "markdown") {
       this.dbService.addNewMarkdownModule(this.project._id, module);
       this.project.modules.push(module);
+    } else if (module.type === "todo") {
+      this.dbService.addNewTodoModule(this.project._id, module);
+      this.project.modules.push(module);
     }
     this.cancelModule();
   }

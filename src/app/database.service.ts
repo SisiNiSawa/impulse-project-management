@@ -10,6 +10,7 @@ import { Kanban } from './shared/kanban.model';
 import { KanbanCard } from './shared/kanban-card.model';
 import { KanbanItem } from './shared/kanban-item.model';
 import { Markdown } from './shared/markdown.model';
+import { Todo } from './shared/todo.model';
 
 @Injectable()
 export class DatabaseService {
@@ -97,6 +98,17 @@ export class DatabaseService {
     }).catch ( (err) => {
       console.log(err);
     })
+  }
+
+  addNewTodoModule(projectID: string, newTodo: Todo) {
+    this.pouch.get(projectID).then( (project) => {
+      project.modules.push(newTodo._id);
+      return this.pouch.put(project);
+    }).then( () => {
+      return this.pouch.put(newTodo);
+    }).catch( (err) => {
+      console.log(err);
+    });
   }
 
   addKanbanCard(kanbanID: string, card: KanbanCard) {
@@ -281,5 +293,5 @@ export class DatabaseService {
       return this.updateItem(project);
     });
   }
-  
+
 }

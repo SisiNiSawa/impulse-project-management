@@ -7,6 +7,7 @@ import { Kanban } from "../shared/kanban.model";
 import { SidebarService } from '../sidebar/sidebar.service';
 import { KanbanComponent } from '../modules/kanban/kanban.component';
 import { MarkdownComponent } from '../modules/markdown/markdown.component';
+import { TodoComponent } from '../modules/todo/todo.component';
 import { DefaultComponent } from '../modules/default/default.component';
 import { ProjectComponent } from '../modules/project/project.component';
 
@@ -55,6 +56,8 @@ export class ContentAreaComponent implements OnInit {
       this.changeContentArea(KanbanComponent);
     } else if (this.selectedItem.type === "markdown") {
       this.changeContentArea(MarkdownComponent);
+    } else if (this.selectedItem.type === "todo") {
+      this.changeContentArea(TodoComponent);
     } else if (this.selectedItem.type === "project") {
       this.changeContentArea(ProjectComponent);
     } else {

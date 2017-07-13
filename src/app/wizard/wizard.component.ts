@@ -65,6 +65,8 @@ export class WizardComponent implements OnInit {
           this.dbService.addNewKanbanModule(this.project._id, this.module);
         } else if (this.module.type === "markdown") {
           this.dbService.addNewMarkdownModule(this.project._id, this.module);
+        } else if (this.module.type === "todo") {
+          this.dbService.addNewTodoModule(this.project._id, this.module);
         }
         this.sidebarService.projects.push(this.project);
         this.updateProjects(this.module);

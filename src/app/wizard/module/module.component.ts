@@ -2,6 +2,7 @@ import { Component, OnInit, Output, EventEmitter, ViewChild, ElementRef} from '@
 
 import { Kanban } from '../../shared/kanban.model';
 import { Markdown } from '../../shared/markdown.model';
+import { Todo } from '../../shared/todo.model';
 
 @Component({
   selector: 'app-wizard-module',
@@ -54,8 +55,12 @@ export class WizardModuleComponent implements OnInit {
       this.createKanban();
     } else if (this.moduleIndex === 2) {
       this.createMarkdown();
+    } else if (this.moduleIndex === 3) {
+      this.createTodo();
     }
   }
+
+  // TODO: dry this up later
 
   createKanban() {
     let newKanban = new Kanban;
@@ -71,6 +76,14 @@ export class WizardModuleComponent implements OnInit {
     newMarkdown.name = this.moduleName;
     newMarkdown.icon = this.moduleIcon;
     this.module.emit(newMarkdown);
+  }
+
+  createTodo() {
+    let newTodo = new Todo;
+    newTodo._id = String(Date.now());
+    newTodo.name = this.moduleName;
+    newTodo.icon = this.moduleIcon;
+    this.module.emit(newTodo);
   }
 
   gotoStepTwo() {
@@ -97,8 +110,8 @@ export class WizardModuleComponent implements OnInit {
     this.moduleIndex = this.moduleIndex + i;
     // shit code
     if (this.moduleIndex < 1) {
-      this.moduleIndex = 2;
-    } else if (this.moduleIndex > 2) {
+      this.moduleIndex = 3;
+    } else if (this.moduleIndex > 3) {
       this.moduleIndex = 1;
     }
   }

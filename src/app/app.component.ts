@@ -9,6 +9,7 @@ import { KanbanItemViewComponent } from './modules/kanban/item/view/view.compone
 import { DefaultComponent } from './modules/default/default.component';
 import { ProjectComponent } from './modules/project/project.component';
 import { MarkdownComponent } from './modules/markdown/markdown.component';
+import { TodoComponent } from './modules/todo/todo.component';
 import { WizardComponent } from './wizard/wizard.component';
 
 @Component({
@@ -16,7 +17,7 @@ import { WizardComponent } from './wizard/wizard.component';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css', '../assets/css/prism.css'],
   encapsulation: ViewEncapsulation.None,
-  entryComponents: [NewProjectComponent, NewModuleComponent, KanbanComponent, KanbanItemViewComponent, DefaultComponent, ProjectComponent, MarkdownComponent, WizardComponent]
+  entryComponents: [NewProjectComponent, NewModuleComponent, KanbanComponent, KanbanItemViewComponent, DefaultComponent, ProjectComponent, MarkdownComponent, TodoComponent, WizardComponent]
 
 })
 export class AppComponent implements OnInit {
