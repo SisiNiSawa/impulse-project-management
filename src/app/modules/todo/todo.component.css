@@ -21,3 +21,104 @@ h1 {
   -moz-box-shadow: 0px 1px 15px 0px #2b303b;
   box-shadow: 0px 1px 15px 0px #2b303b;
 }
+
+ul {
+  list-style: none;
+}
+
+.content {
+  padding: 30px 10px;
+}
+
+.item {
+  display: flex;
+  height: 40px;
+  margin-bottom: 10px;
+}
+
+.edit-todo {
+  display: flex;
+  height: 40px;
+  margin-bottom: 10px;
+}
+
+.todo-input {
+  background-color: #606785;
+  color: #e2e3e9;
+  border: 2px solid #363949;
+  flex: 1;
+  padding: 0 5px;
+}
+
+.todo {
+  background-color: #4c5067;
+  padding-left: 5px;
+  padding-right: 15px;
+  color: #e2e3e9;
+  font-size: 1.2em;
+  line-height: 2.2em;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  transition: 0.25s;
+  cursor: pointer;
+  min-width: 100px;
+}
+
+.todo:hover {
+  background-color: #626784;
+}
+
+.checkbox-container {
+  background-color: #363949;
+  padding: 8px;
+  display: flex;
+  justify-content: center;
+  width: 40px;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+
+.checkbox {
+  background-color: #4b5068;
+  border: 2px solid #c4c7d4;
+  border-radius: 4px;
+  padding: 10px;
+  transition: 0.25s;
+  cursor: pointer;
+}
+
+.checkbox:hover {
+  background-color: #606785;
+}
+
+.checkbox-container .fa {
+  color: #7bf49b;
+  font-size: 1.6em;
+}
+
+.btn-container {
+  display: flex;
+  background-color: #363949;
+  width: 80px;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.btn-container .fa {
+  font-size: 1.7em;
+}
+
+.btn-todo {
+  color: #e2e3e9;
+  width: 40px;
+  padding: 6px;
+  cursor: pointer;
+}
+
+.fa-trash-o {
+  color: #F9BDC1;
+}
+
+.fa-check-circle {
+  color: #97C79F;
+}

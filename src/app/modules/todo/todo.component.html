@@ -2,7 +2,44 @@
   <div class="col-md-12">
 
     <div class="header">
-      <h1>Todo List Name</h1>
+      <h1>{{ todo?.name }}</h1>
+      <button class="button button-positive pull-right" (click)="newItem()">New Item</button>
+    </div>
+
+    <div class="content">
+
+      <ul class="items">
+
+        <li class="item" *ngFor="let item of todo.items; let index = index">
+
+          <span class="checkbox-container" (click)="toggleChecked(index)">
+            <span class="checkbox" *ngIf="!item?.checked"></span>
+            <i class="fa fa-check-square" aria-hidden="true" *ngIf="item?.checked"></i>
+          </span>
+
+          <div class="todo" *ngIf="editIndex != index" (click)="editItem(index)">
+            {{ item.content }}
+          </div>
+
+          <input auto-focus type="text" class="todo-input"
+          *ngIf="editIndex === index"
+          [ngModel]="item?.content"
+          (ngModelChange)="item.content = $event"
+          (keyup.enter)="updateItem(index)">
+          <span class="btn-container" *ngIf="editIndex === index">
+            <span class="btn-todo">
+              <i class="fa fa-trash-o" aria-hidden="true" (click)="removeItem(index)"></i>
+            </span>
+
+            <span class="btn-todo">
+              <i class="fa fa-check-circle" aria-hidden="true" (click)="updateItem(index)"></i>
+            </span>
+          </span>
+
+        </li>
+
+      </ul>
+
     </div>
 
   </div>
