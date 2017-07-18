@@ -21,7 +21,9 @@ export class TodoComponent implements OnInit {
     private sidebarService: SidebarService,
     private dbService: DatabaseService
   ) {
-    this.todo = this.sidebarService.selectedItem;
+    this.dbService.getEntryByID(this.sidebarService.selectedItem._id).then( (todo) => {
+      this.todo = todo;
+    });
   }
 
   ngOnInit() {
