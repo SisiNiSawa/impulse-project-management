@@ -26,7 +26,6 @@ export class KanbanComponent implements OnInit {
       let kanbanID = this.sidebarService.selectedItem;
       this.kanbanService.initializeKanban(kanbanID._id).then( (_kanban) => {
         this.kanban = _kanban;
-        // console.log(_kanban);
       });
     }
 
@@ -41,7 +40,6 @@ export class KanbanComponent implements OnInit {
     newCard._id = String(Date.now());
     newCard.order = this.kanban.cards.length + 1;
     this.kanbanService.createNewCard(this.kanban._id, newCard);
-    console.log("New card added!");
     this.kanban.cards.push(newCard);
   }
 
@@ -52,7 +50,6 @@ export class KanbanComponent implements OnInit {
     // [3] original element container
     // [4] sibling of element in new container
     this.dragula.drop.debounceTime(100).subscribe( (event) => {
-      console.log(event);
       if (event[2] === event[3]) {
         // item moved inside of the same container
         this.moveItemInsideCard(event);
@@ -99,7 +96,6 @@ export class KanbanComponent implements OnInit {
       }
       if (itemIndex !== -1) {
         this.kanban.cards[cardIndex].items.splice(itemIndex, 1);
-        console.log("removed item from array");
       } else {
         console.log("could not find item index");
       }

@@ -13,7 +13,6 @@ export class KanbanItemComponent implements OnInit {
 
   @Input() item;
   @Input() cardID;
-  dropdownVisible: boolean = false;
   mouseHasEntered: boolean = false;
 
   constructor(
@@ -27,21 +26,6 @@ export class KanbanItemComponent implements OnInit {
 
   viewItemInfo() {
     this.popupService.viewKanbanItemInfo(this.item, this.cardID);
-  }
-
-  showDropdown(event: Event) {
-    // event.stopPropagation();
-    // this.dropdownVisible = !this.dropdownVisible;
-  }
-
-  mouseEnter() {
-    this.mouseHasEntered = true;
-  }
-
-  mouseLeave() {
-    if (this.mouseHasEntered) {
-      this.dropdownVisible = false;
-    }
   }
 
   removeItem(event: Event) {

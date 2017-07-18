@@ -41,15 +41,25 @@ export class KanbanItemViewComponent implements OnInit {
     // so we always get an up to date version of our item
     this.dbService.getEntryByID(this.item._id).then( (returnedItem) => {
       this.viewItem = returnedItem;
+      this.checkIfNewItem();
     });
     // add target _blank to all links so they open in the user's default browser
     this._markdown.renderer.link = (href: string, title: string, text: string) => {
       return `<a href="${href}" target="_blank" title="${title}">${text}</a>`;
     }
+
+
   }
 
   clearPopups() {
     this.popupService.clearPopups();
+  }
+
+  // check if this is a recently created item
+  checkIfNewItem() {
+    if (this.viewItem.shortDescription === "New Item") {
+      this.editMode = true;
+    }
   }
 
   updateItem() {
