@@ -1,25 +1,6 @@
-h1 {
-  color: #e2e3e9;
-  font-size: 2em;
-  margin-top: 10px;
-  padding-left: 20px;
-  display: inline-block;
-}
-
 .col-md-12 {
   display: flex;
   flex-direction: column;
-}
-
-.button {
-  margin: 10px;
-}
-
-.header {
-  background-color: #282a36;
-  -webkit-box-shadow: 0px 1px 15px 0px #2b303b;
-  -moz-box-shadow: 0px 1px 15px 0px #2b303b;
-  box-shadow: 0px 1px 15px 0px #2b303b;
 }
 
 ul {

@@ -1,6 +1,10 @@
 <div fade-in class="row">
   <div class="col-md-12">
-    <h1 class="module-title noselect">{{ kanban?.name }} <i (click)="createNewCard()" class="fa fa-plus-circle" aria-hidden="true"></i></h1>
+    <header class="module-header">
+      <h1 class="noselect">{{ kanban?.name }}</h1>
+      <button class="button button-positive pull-right">New Card</button>
+    </header>
+    <!-- <h1 class="module-title noselect">{{ kanban?.name }} <i (click)="createNewCard()" class="fa fa-plus-circle" aria-hidden="true"></i></h1> -->
 
     <div class="row kanban-area">
       <app-kanban-card

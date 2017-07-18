@@ -1,6 +1,7 @@
 <div class="row">
   <div class="col-md-12">
-    <div class="header">
+
+    <header class="module-header">
       <h1 class="noselect">{{ markdown?.name }}</h1>
       <button class="button button-edit pull-right"
       *ngIf="!editMode"
@@ -8,7 +9,7 @@
       <button class="button button-positive pull-right"
       *ngIf="editMode"
       (click)="saveMarkdown()">Save</button>
-    </div>
+    </header>
 
     <div class="content overflow" *ngIf="!editMode">
       <markdown class="markdown" *ngIf="markdown">{{ markdown.content }}</markdown>
