@@ -46,7 +46,7 @@ label {
 }
 
 .module-img {
-  max-height: 140px;
+  max-height: 155px;
 }
 
 .kanban {
@@ -98,4 +98,14 @@ label {
 .module {
   max-width: 610px;
   transition: 0.25s;
+}
+
+.markdown {
+  display: flex;
+  justify-content: center;
+}
+
+.todo {
+  display: flex;
+  justify-content: center;
 }
