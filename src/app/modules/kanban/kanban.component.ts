@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 
 import { DatabaseService } from '../../database.service';
 import { KanbanService } from './kanban.service';
@@ -14,9 +14,11 @@ import { KanbanCard } from '../../shared/kanban-card.model';
   styleUrls: ['./kanban.component.css'],
   providers: []
 })
-export class KanbanComponent implements OnInit {
+export class KanbanComponent implements OnInit, OnDestroy {
 
   kanban: Kanban;
+  kanbanObsv: any;
+  dragulaObsv: any;
 
   constructor(
     private kanbanService: KanbanService,
@@ -34,6 +36,11 @@ export class KanbanComponent implements OnInit {
     this.initObserver();
   }
 
+  ngOnDestroy() {
+    this.dragulaObsv.unsubscribe();
+    this.kanbanObsv.unsubscribe();
+  }
+
   createNewCard() {
     let newCard = new KanbanCard;
     newCard.name = "New Card";
@@ -49,7 +56,7 @@ export class KanbanComponent implements OnInit {
     // [2] new element container
     // [3] original element container
     // [4] sibling of element in new container
-    this.dragula.drop.debounceTime(100).subscribe( (event) => {
+    this.dragulaObsv = this.dragula.drop.debounceTime(100).subscribe( (event) => {
       if (event[2] === event[3]) {
         // item moved inside of the same container
         this.moveItemInsideCard(event);
@@ -64,7 +71,7 @@ export class KanbanComponent implements OnInit {
 
 
     initObserver() {
-      this.kanbanService.obsv.subscribe( (event) => {
+      this.kanbanObsv = this.kanbanService.obsv.subscribe( (event) => {
         if (event.type === "removeItem") {
           this.removeItem(event.item, event.card);
         } else if (event.type === "removeCard") {

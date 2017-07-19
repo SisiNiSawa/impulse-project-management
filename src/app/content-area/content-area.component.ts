@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewContainerRef, ComponentFactoryResolver } from '@angular/core';
+import { Component, OnInit, ViewContainerRef, ComponentFactoryResolver, ComponentRef } from '@angular/core';
 
 import { Observable } from "rxjs/Observable";
 
@@ -21,7 +21,7 @@ import { WizardComponent } from '../wizard/wizard.component';
 export class ContentAreaComponent implements OnInit {
 
   selectedItem: any;
-  currentComponent: any;
+  currentComponent: ComponentRef<any>;
 
   constructor(
     private viewContainer: ViewContainerRef,
@@ -66,9 +66,9 @@ export class ContentAreaComponent implements OnInit {
   }
 
   clearContentArea() {
-    // if (this.currentComponent) {
-    //   this.currentComponent.destroy();
-    // }
+    if (this.currentComponent) {
+      this.currentComponent.destroy();
+    }
     this.viewContainer.clear();
   }
 

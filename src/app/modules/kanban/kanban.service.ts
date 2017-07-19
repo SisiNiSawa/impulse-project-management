@@ -30,7 +30,6 @@ export class KanbanService {
   // =========================
 
   initializeKanban(kanbanID: string) {
-    console.log("initalizing...");
     let n;
     let _kanban;
 

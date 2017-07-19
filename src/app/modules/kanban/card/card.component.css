@@ -52,7 +52,7 @@ input:focus {
 .card-items {
   overflow: auto;
   /*max-height: 77vh;*/
-  max-height: 83vh;
+  max-height: calc(80vh - 10px);
   min-height: 100px;
 }
 
