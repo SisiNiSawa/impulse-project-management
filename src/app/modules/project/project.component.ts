@@ -12,6 +12,8 @@ export class ProjectComponent implements OnInit {
 
   project;
   displayModuleCreation: boolean = false;
+  displayModuleInfo: boolean = false;
+  selectedModule: any;
 
   constructor(
     private sidebarService: SidebarService,
@@ -62,6 +64,11 @@ export class ProjectComponent implements OnInit {
         this.sidebarService.removeByID(module._id);
       });
     }
+  }
+
+  onSelectModule(module: any) {
+    this.selectedModule = module;
+    this.displayModuleInfo = true;
   }
 
 }

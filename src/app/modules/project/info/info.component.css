@@ -1,0 +1,39 @@
+.row {
+  margin-top: 0.5em;
+}
+
+.module-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  color: #e2e3e9;
+  background-color: #282a36;
+  border-top: 10px solid #626784;
+  border-radius: 6px;
+  width: 20em;
+}
+
+.button {
+  align-self: center;
+}
+
+label {
+  color: #7a859f;
+  font-size: 1.1em;
+}
+
+.info {
+  font-size: 1em;
+  color: #e2e3e9;
+  align-self: center;
+  margin: 0;
+}
+
+label span {
+  color: #e2e3e9;
+}
+
+.justify-around {
+  justify-content: space-around;
+  height: 12em;
+}

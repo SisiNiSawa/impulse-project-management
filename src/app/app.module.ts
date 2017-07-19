@@ -32,6 +32,7 @@ import { IconSelectorComponent } from './shared/icon-selector/icon-selector.comp
 import { WizardModuleComponent } from './wizard/module/module.component';
 import { TodoComponent } from './modules/todo/todo.component';
 import { EllipsisPipe } from './ellipsis.pipe';
+import { ProjectInfoComponent } from './modules/project/info/info.component';
 
 
 
@@ -59,7 +60,8 @@ import { EllipsisPipe } from './ellipsis.pipe';
     IconSelectorComponent,
     WizardModuleComponent,
     TodoComponent,
-    EllipsisPipe
+    EllipsisPipe,
+    ProjectInfoComponent
   ],
   imports: [
     BrowserModule,
