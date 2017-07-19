@@ -7,7 +7,7 @@
       <span class="delete" (click)="removeItem($event)">
         <i class="fa fa-trash-o" aria-hidden="true"></i>
       </span>
-      {{ item.shortDescription | slice:0:25 }}
+      {{ item.shortDescription | ellipsis:25 }}
     </div>
 
   </li>

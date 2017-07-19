@@ -31,6 +31,7 @@ import { FadeInDirective } from './fade-in.directive';
 import { IconSelectorComponent } from './shared/icon-selector/icon-selector.component';
 import { WizardModuleComponent } from './wizard/module/module.component';
 import { TodoComponent } from './modules/todo/todo.component';
+import { EllipsisPipe } from './ellipsis.pipe';
 
 
 
@@ -57,7 +58,8 @@ import { TodoComponent } from './modules/todo/todo.component';
     FadeInDirective,
     IconSelectorComponent,
     WizardModuleComponent,
-    TodoComponent
+    TodoComponent,
+    EllipsisPipe
   ],
   imports: [
     BrowserModule,
