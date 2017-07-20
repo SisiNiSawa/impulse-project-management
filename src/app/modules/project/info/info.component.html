@@ -22,21 +22,37 @@
 
     </div>
 
-    <div class="row">
+    <div class="row justify-center">
       <!-- edit mode area -->
-      <div class="col-md-12 module-card edit-card"
+      <div class="col-md-10 module-card edit-card"
       *ngIf="displayEditMode"
       fade-in>
+      <label>Name</label>
+      <input type="text" class="name-box" [(ngModel)]="newName">
+      <label>Icon</label>
+      <icon-selector
+        [selectedIcon]="module.icon"
+        (icon)="selectIcon($event)"
+      ></icon-selector>
+
+      <div class="buttons">
+        <button class="button button-negative"
+        (click)="toggleDisplayModuleEdit()">No</button>
+        <button class="button button-positive"
+        (click)="updateModule()">Yes</button>
+      </div>
 
       </div>
       <!-- delete confirm area -->
-      <div class="col-md-12 module-card delete-card" *ngIf="displayConfirmDelete"
+      <div class="col-md-8 module-card delete-card" *ngIf="displayConfirmDelete"
       fade-in>
         <label>Are you sure you want to delete the module?</label>
-        <button class="button button-positive"
-        (click)="toggleConfirmDelete()">No</button>
-        <button class="button button-negative"
-        (click)="deleteModule(module._id)">Yes</button>
+        <div class="buttons">
+          <button class="button button-negative"
+          (click)="toggleConfirmDelete()">No</button>
+          <button class="button button-positive"
+          (click)="deleteModule(module._id)">Yes</button>
+        </div>
       </div>
     </div>
 

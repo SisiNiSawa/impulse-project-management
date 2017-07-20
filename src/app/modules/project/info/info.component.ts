@@ -21,6 +21,9 @@ export class ProjectInfoComponent implements OnInit {
   displayConfirmDelete: boolean = false;
   displayEditMode: boolean = false;
 
+  newName: string;
+  newIcon: string;
+
   constructor(
     private dbService: DatabaseService,
     private sidebarService: SidebarService
@@ -29,6 +32,7 @@ export class ProjectInfoComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.newName = this.module.name;
   }
 
   parseModuleData() {
@@ -48,6 +52,7 @@ export class ProjectInfoComponent implements OnInit {
   }
 
   toggleConfirmDelete() {
+    this.displayEditMode = false;
     this.displayConfirmDelete = !this.displayConfirmDelete;
   }
 
@@ -85,7 +90,20 @@ export class ProjectInfoComponent implements OnInit {
   }
 
   toggleDisplayModuleEdit() {
+    this.displayConfirmDelete = false;
     this.displayEditMode = !this.displayEditMode;
+  }
+
+  updateModule() {
+    this.displayEditMode = false;
+    this.module.name = this.newName;
+    this.module.icon = this.newIcon;
+    this.dbService.updateItem(this.module);
+  }
+
+  selectIcon(event: Event) {
+    this.newIcon = String(event);
+    console.log(this.newIcon);
   }
 
 }

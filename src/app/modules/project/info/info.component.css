@@ -14,7 +14,31 @@
 }
 
 .delete-card {
-  height: 12em;
+  height: 8em;
+}
+
+.edit-card {
+  height: 25em;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.edit-card .name-box {
+  border: 1px solid rgba(0,0,0,.15);
+  color: #464a4c;
+  background-color: #f0f1f4;
+  border-radius: .25rem;
+  padding-left: 5px;
+}
+
+.edit-card label {
+  color: #e2e3e9;
+  padding-top: 10px;
+}
+
+.edit-card .buttons {
+  flex: 1;
 }
 
 .delete-card label {
@@ -23,9 +47,14 @@
   font-size: 1.2em;
 }
 
-
 .button {
   align-self: center;
+}
+
+.buttons {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
 }
 
 label {
@@ -47,4 +76,8 @@ label span {
 .justify-around {
   justify-content: space-around;
   height: 12em;
+}
+
+.justify-center {
+  justify-content: center;
 }
