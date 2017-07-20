@@ -37,6 +37,7 @@ export class ProjectInfoComponent implements OnInit {
 
   parseModuleData() {
     this.prettifyModuleType();
+    this.prettifyDate();
   }
 
   prettifyModuleType() {
@@ -49,6 +50,13 @@ export class ProjectInfoComponent implements OnInit {
     } else {
       console.log("err: module type not listed.")
     }
+  }
+
+  prettifyDate() {
+    let d = new Date(Number(this.module._id));
+    let dArr = String(d).split(" ");
+    dArr.splice(5, 2);
+    this.prettyDate = dArr.join(" ");
   }
 
   toggleConfirmDelete() {
