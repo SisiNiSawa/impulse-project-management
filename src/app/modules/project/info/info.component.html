@@ -13,21 +13,30 @@
 
       <div class="col-md-5 module-card">
         <label class="info">Edit module details</label>
-        <button class="button button-edit">Edit</button>
+        <button class="button button-edit"
+        (click)="toggleDisplayModuleEdit()">Edit</button>
         <label class="info">Permanantly delete the module</label>
-        <button class="button button-negative">Delete</button>
+        <button class="button button-negative"
+        (click)="toggleConfirmDelete()">Delete</button>
       </div>
 
     </div>
 
     <div class="row">
       <!-- edit mode area -->
-      <div class="col-md-12 module-card" *ngIf="displayEditMode">
+      <div class="col-md-12 module-card edit-card"
+      *ngIf="displayEditMode"
+      fade-in>
 
       </div>
       <!-- delete confirm area -->
-      <div class="col-md-12 module-card" *ngIf="displayConfirmDelete"> 
-
+      <div class="col-md-12 module-card delete-card" *ngIf="displayConfirmDelete"
+      fade-in>
+        <label>Are you sure you want to delete the module?</label>
+        <button class="button button-positive"
+        (click)="toggleConfirmDelete()">No</button>
+        <button class="button button-negative"
+        (click)="deleteModule(module._id)">Yes</button>
       </div>
     </div>
 

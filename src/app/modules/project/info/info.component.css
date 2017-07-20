@@ -13,6 +13,17 @@
   width: 20em;
 }
 
+.delete-card {
+  height: 12em;
+}
+
+.delete-card label {
+  color: #e2e3e9;
+  align-self: center;
+  font-size: 1.2em;
+}
+
+
 .button {
   align-self: center;
 }

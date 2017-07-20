@@ -1,5 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 
+import { DatabaseService } from '../../../database.service';
+import { SidebarService } from '../../../sidebar/sidebar.service';
+
 @Component({
   selector: 'app-project-info',
   templateUrl: './info.component.html',
@@ -12,10 +15,16 @@ export class ProjectInfoComponent implements OnInit {
     this.module = value;
     this.parseModuleData();
   }
+  @Input() projectID: string;
   prettyModuleType: string;
   prettyDate: string;
+  displayConfirmDelete: boolean = false;
+  displayEditMode: boolean = false;
 
-  constructor() {
+  constructor(
+    private dbService: DatabaseService,
+    private sidebarService: SidebarService
+  ) {
 
   }
 
@@ -36,6 +45,47 @@ export class ProjectInfoComponent implements OnInit {
     } else {
       console.log("err: module type not listed.")
     }
+  }
+
+  toggleConfirmDelete() {
+    this.displayConfirmDelete = !this.displayConfirmDelete;
+  }
+
+  deleteModule(id: string) {
+    let s: boolean;
+    let index: number;
+    this.dbService.getEntryByID(this.projectID).then( (project) => {
+      // remove the module from the project array
+      for (let i = 0; i < project.modules.length; i++) {
+        if (project.modules[i] === id) {
+          s = true;
+          index = i;
+          project.modules.splice(i, 1);
+          break;
+        }
+      }
+      // make sure we removed the module from the project array
+      if (s === true) {
+        this.dbService.updateItem(project).then( () => {
+          this.dbService.removeEntryByID(id);
+          // update the sidebar
+          for (let i = 0; i < this.sidebarService.projects.length; i++) {
+            if (this.sidebarService.projects[i]._id === project._id) {
+              this.sidebarService.projects[i].modules.splice(index, 1);
+              this.sidebarService.projects.modules.splice(index, 1);
+              this.sidebarService.updateProjects();
+            }
+          }
+        });
+      } else {
+        console.log("Error: Could not find module ID in project.");
+      }
+    });
+    this.toggleConfirmDelete();
+  }
+
+  toggleDisplayModuleEdit() {
+    this.displayEditMode = !this.displayEditMode;
   }
 
 }

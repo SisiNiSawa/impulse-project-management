@@ -39,8 +39,10 @@
             *ngIf="displayModuleCreation"
           ></app-wizard-module>
           <app-project-info
+            fade-in
             *ngIf="displayModuleInfo"
             [_module]="selectedModule"
+            [projectID]="project._id"
           ></app-project-info>
         </div>
       </div>
